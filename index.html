@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <meta name="description" content="Документальная семейная летопись рода Барбул: родословное древо, хронология, архивные дела и вопросы исследования.">
   <title>Род Барбул — семейная летопись</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root{--paper:#f3efe6;--paper-2:#e9e1d2;--ink:#17201f;--muted:#66706b;--line:#c9beaa;--red:#9d392f;--red-soft:#f0ddd7;--green:#2e6656;--green-soft:#dbe8e1;--amber:#a76b1e;--amber-soft:#efe2c9;--white:#fffdf8;--shadow:0 18px 55px rgba(48,39,28,.12);--radius:18px}
     *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Arial,sans-serif;font-size:16px;line-height:1.55}button,input{font:inherit}button{color:inherit}.serif{font-family:Georgia,"Times New Roman",serif}.wrap{width:min(1440px,calc(100% - 40px));margin:auto}
@@ -21,6 +24,33 @@
     @media(max-width:900px){.wrap{width:min(100% - 24px,720px)}.top-inner{height:auto;min-height:66px;flex-wrap:wrap;padding:10px 0}.nav{order:3;width:100%;overflow:auto;padding-bottom:2px;margin:0}.nav button{white-space:nowrap}.search-btn{margin-left:auto}.hero{padding-top:38px}.hero-grid{grid-template-columns:1fr}.hero h1{font-size:56px}.stats{max-width:520px}.section-head{align-items:start;flex-direction:column}.legend{justify-content:flex-start}.tree-viewport{height:620px}.timeline-layout{grid-template-columns:1fr}.era-nav{display:none}.timeline{padding-left:32px;margin-left:7px}.event:before{left:-40px}.archive-card,.archive-card.featured,.archive-card.small{grid-column:span 12}.method{grid-template-columns:1fr}.about-box{grid-template-columns:1fr}.updated{justify-content:flex-start;text-align:left}.footer-inner{flex-direction:column}.tree-note span:first-child{display:none}}
     @media(max-width:560px){.hero h1{font-size:44px}.hero p{font-size:17px}.stat{padding:15px}.stat b{font-size:26px}.brand span:last-child{display:none}.search-btn kbd,.search-btn .search-label{display:none}.tree-shell{border-radius:14px}.tree-viewport{height:70vh;max-height:640px}.panel{padding:22px}.archive-card{padding:21px}.nav button{font-size:14px;padding:9px 12px}}
     @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
+
+    /* Тёмный дизайн первой версии */
+    :root{--paper:#0c0f17;--paper-2:#151b2a;--ink:#e2e8f0;--muted:#94a3b8;--line:rgba(212,175,55,.24);--red:#f43f5e;--red-soft:rgba(244,63,94,.14);--green:#10b981;--green-soft:rgba(16,185,129,.14);--amber:#d4af37;--amber-soft:rgba(212,175,55,.14);--white:#161b2a;--shadow:0 18px 55px rgba(0,0,0,.38)}
+    body{font-family:'Plus Jakarta Sans',sans-serif;background-color:#0c0f17;background-image:radial-gradient(circle at 10% 20%,rgba(212,175,55,.07) 0,transparent 38%),radial-gradient(circle at 90% 80%,rgba(59,130,246,.07) 0,transparent 38%),linear-gradient(to bottom,#080a10,#0d111a);color:var(--ink)}
+    .serif,.hero h1,.section-head h2,.stat b,.event h3,.archive-card h3,.method-card h3,.about-box h3,.panel h2{font-family:'Cinzel',Georgia,serif}
+    .top{background:rgba(8,10,16,.9);border-bottom-color:var(--line);box-shadow:0 8px 28px rgba(0,0,0,.22)}
+    .brand{color:#f3e5ab}.seal{border-color:#d4af37;color:#d4af37;box-shadow:0 0 18px rgba(212,175,55,.18)}
+    .nav button{color:#a9b4c6}.nav button:hover,.nav button.active{background:#d4af37;color:#0c0f17;box-shadow:0 0 15px rgba(212,175,55,.25)}
+    .search-btn{border-color:var(--line);background:rgba(22,27,42,.88);color:#e2e8f0}.search-btn:hover{border-color:#d4af37}.search-btn kbd{color:#94a3b8}
+    .hero{border-bottom-color:var(--line);background:linear-gradient(135deg,rgba(212,175,55,.06),transparent 56%),radial-gradient(circle at 85% 0,rgba(59,130,246,.08),transparent 32%)}
+    .eyebrow{color:#d4af37}.hero h1{color:#f3e5ab;text-shadow:0 0 24px rgba(212,175,55,.25)}.hero p,.section-head p{color:#94a3b8}
+    .stats{border-color:var(--line);background:rgba(22,27,42,.72);box-shadow:0 16px 38px rgba(0,0,0,.22)}.stat:nth-child(odd),.stat:nth-child(-n+2){border-color:var(--line)}.stat b{color:#f3e5ab}.stat span{color:#94a3b8}
+    .pill{border-color:rgba(255,255,255,.1);background:rgba(22,27,42,.82);color:#cbd5e1}
+    .tree-shell{border-color:var(--line);background:rgba(15,20,32,.78);box-shadow:inset 0 0 44px rgba(0,0,0,.5),0 18px 55px rgba(0,0,0,.28)}
+    .tree-note{border-bottom-color:var(--line);background:rgba(18,23,36,.92);color:#94a3b8}.icon-btn{border-color:var(--line);background:#161b2a;color:#e2e8f0}.icon-btn:hover{border-color:#d4af37;color:#f3e5ab}
+    .tree-viewport{background-color:rgba(10,14,23,.74);background-image:linear-gradient(rgba(212,175,55,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(212,175,55,.035) 1px,transparent 1px)}
+    .tree-lines path{stroke:rgba(212,175,55,.5)}.tree-lines path.uncertain{stroke:#f43f5e}.generation{color:#718096}
+    .person{border-color:rgba(255,255,255,.09);border-top-color:#10b981;background:rgba(22,27,42,.9);box-shadow:0 9px 24px rgba(0,0,0,.34);color:#e2e8f0;backdrop-filter:blur(10px)}
+    .person:hover,.person:focus-visible{background:rgba(30,38,59,.96);border-color:#d4af37;box-shadow:0 14px 30px rgba(0,0,0,.46),0 0 16px rgba(212,175,55,.13);outline-color:rgba(212,175,55,.3)}
+    .person[data-status="probable"]{border-top-color:#d4af37}.person[data-status="hypothesis"]{border-top-color:#f43f5e}.person .role{color:#d4af37}.person strong{color:#fff}.person small{color:#94a3b8}.person .branch{color:#7dd3fc}
+    .timeline{border-left-color:var(--line)}.event:before{background:#0c0f17;border-color:#d4af37}.event .year{color:#d4af37}.event p{color:#aab4c3}.source-note{background:#161b2a;color:#c2cada;border:1px solid rgba(255,255,255,.07)}.era-nav button{border-color:var(--line);color:#94a3b8}.era-nav button:hover{border-color:#d4af37;color:#f3e5ab}
+    .archive-card{border-color:rgba(255,255,255,.09);background:rgba(22,27,42,.86);box-shadow:0 12px 30px rgba(0,0,0,.2)}.archive-card.featured{background:linear-gradient(145deg,#1b2132,#101521);border-color:rgba(212,175,55,.38)}.archive-card .num{color:rgba(212,175,55,.22)}.archive-card.featured .num{color:rgba(212,175,55,.15)}.archive-card h3{color:#f3e5ab}.archive-card p,.archive-card.featured p{color:#aab4c3}
+    .method-card{border-color:rgba(255,255,255,.09);background:rgba(22,27,42,.86)}.method-card h3{color:#f3e5ab}.method-card p{color:#aab4c3}.about-box{border-color:var(--line);background:linear-gradient(135deg,rgba(212,175,55,.08),rgba(22,27,42,.9))}.about-box h3{color:#f3e5ab}.about-box p,.updated{color:#aab4c3}
+    .drawer .backdrop{background:rgba(2,5,10,.76)}.panel{background:#121724;color:#e2e8f0;border-left:1px solid var(--line)}.panel-close{border-color:var(--line);color:#e2e8f0}.panel .dates{color:#d4af37}.panel p{color:#b7c0ce}.source-box{border-left-color:#d4af37;background:#0c101a}.copy-link{border-color:var(--line);color:#e2e8f0}.copy-link:hover{border-color:#d4af37;color:#f3e5ab}
+    .search-overlay{background:rgba(2,5,10,.8)}.search-box{background:#121724;border:1px solid var(--line)}.search-input{border-bottom-color:var(--line);color:#fff}.search-input::placeholder{color:#718096}.result{color:#e2e8f0}.result:hover{background:#1b2233}.result small,.empty{color:#94a3b8}
+    footer{border-top-color:var(--line);color:#94a3b8}
+    @media(max-width:900px){.nav{scrollbar-width:none}.nav::-webkit-scrollbar{display:none}}
   </style>
 </head>
 <body>
