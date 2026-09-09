@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Летопись и Древо Рода Барбул</title>
+  <title>Общее древо и летопись рода Барбул</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -161,6 +161,8 @@
 
     .level {
       display: flex;
+      flex-direction: column;
+      align-items: center;
       justify-content: center;
       width: 100%;
       position: relative;
@@ -236,6 +238,26 @@
       display: flex;
       flex-direction: column;
       align-items: center;
+    }
+
+    .couple-row {
+      display: flex;
+      align-items: stretch;
+      gap: 12px;
+      padding: 8px;
+      border: 1px dashed var(--border-line);
+      border-radius: 18px;
+    }
+
+    .generation-label {
+      width: 100%;
+      margin-bottom: 12px;
+      color: var(--text-muted);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 1.2px;
+      text-align: center;
+      text-transform: uppercase;
     }
 
     /* TIMELINE SECTION */
@@ -428,21 +450,21 @@
 
   <!-- HEADER -->
   <header>
-    <h1>ЛЕТОПИСЬ РОДА БАРБУЛ</h1>
-    <p>Интерактивное генеалогическое исследование молдавско-приднестровского рода Барбул (Рыбница / хутор Шмоленки) и уральской ветви (Магнитогорск / Варна).</p>
+    <h1>ОБЩЕЕ ДРЕВО РОДА БАРБУЛ</h1>
+    <p>Все известные ветви рода Барбул: Рыбница и хутор Шмоленки, Магнитогорск и Варна. Древо показывает родственные линии от старших поколений к потомкам.</p>
     
     <div class="badge-bar">
       <span class="badge badge-gold">Корень: г. Рыбница</span>
-      <span class="badge badge-blue">Прямая уральская ветвь</span>
+      <span class="badge badge-blue">Уральская ветвь</span>
       <span class="badge badge-red">Архивное дело ГПУ №3910</span>
     </div>
   </header>
 
   <!-- NAVIGATION TABS -->
   <div class="nav-tabs">
-    <button class="tab-btn active" onclick="switchTab('tree')">Древо Рода</button>
-    <button class="tab-btn" onclick="switchTab('timeline')">Хроника Времени</button>
-    <button class="tab-btn" onclick="switchTab('dossier')">Архивы и Тайны</button>
+    <button class="tab-btn active" onclick="switchTab('tree', this)">Общее древо</button>
+    <button class="tab-btn" onclick="switchTab('timeline', this)">Хроника Времени</button>
+    <button class="tab-btn" onclick="switchTab('dossier', this)">Архивы и Тайны</button>
   </div>
 
   <!-- 1. TREE TAB -->
@@ -457,26 +479,28 @@
       <div class="tree-canvas-wrapper" id="canvasWrapper">
         <div class="tree-container" id="treeContainer">
           
-          <!-- ПОКОЛЕНИЕ I: ПРАПРАДЕД -->
+          <!-- ПОКОЛЕНИЕ I -->
           <div class="level">
+            <div class="generation-label">Поколение I</div>
             <div class="family-unit">
               <div class="person-card direct-root" onclick="openModal('rodion')">
-                <span class="card-role">Прапрадед • Корень рода</span>
+                <span class="card-role">Поколение I • Корень древа</span>
                 <div class="card-name">Родион Родионович Барбул</div>
                 <div class="card-dates">ок. 1850–60-е • м. Рыбница</div>
-                <span class="card-tag">Основатель линий</span>
+                <span class="card-tag">Старший известный предок</span>
               </div>
             </div>
           </div>
 
           <!-- ПОКОЛЕНИЕ II: СЫНОВЬЯ РОДИОНА -->
           <div class="level">
+            <div class="generation-label">Поколение II • Сыновья Родиона</div>
             <div class="branch-group">
               
               <!-- Ветвь Ефрема -->
               <div class="family-unit" style="margin-right: 80px;">
                 <div class="person-card direct-line" onclick="openModal('efrem')">
-                  <span class="card-role">Прадед (Линия Урала)</span>
+                  <span class="card-role">Поколение II • Сын Родиона</span>
                   <div class="card-name">Ефрем Родионович Барбул</div>
                   <div class="card-dates">ок. 1880-е — ?</div>
                   <span class="card-tag">Переезд на Урал (1926)</span>
@@ -486,7 +510,7 @@
               <!-- Ветвь Трофима -->
               <div class="family-unit">
                 <div class="person-card repress-line" onclick="openModal('trofim')">
-                  <span class="card-role">Брат прадеда (Рыбница)</span>
+                  <span class="card-role">Поколение II • Сын Родиона</span>
                   <div class="card-name">Трофим Родионович Барбул</div>
                   <div class="card-dates">1883, Рыбница — после 1956</div>
                   <span class="card-tag">Высылка в Курган (1949)</span>
@@ -496,34 +520,51 @@
             </div>
           </div>
 
-          <!-- ПОКОЛЕНИЕ III: ДЕТИ ЕФРЕМА И ТРОФИМА -->
+          <!-- ПОКОЛЕНИЕ III: ДЕТИ И СВОЙСТВЕННИКИ -->
           <div class="level">
+            <div class="generation-label">Поколение III • Дети Ефрема и семейные ветви</div>
             <div class="branch-group">
-              
-              <!-- Прямой дед: Гавриил -->
+
+              <!-- Семья Гавриила -->
               <div class="family-unit">
-                <div class="person-card direct-line" onclick="openModal('gavriil')">
-                  <span class="card-role">Дедушка • Прямая линия</span>
-                  <div class="card-name">Гавриил Ефремович Барбул</div>
-                  <div class="card-dates">Урал / Магнитогорск</div>
-                  <span class="card-tag">Супруг Н. С. Буграновой</span>
+                <div class="couple-row">
+                  <div class="person-card direct-line" onclick="openModal('gavriil')">
+                    <span class="card-role">Сын Ефрема</span>
+                    <div class="card-name">Гавриил Ефремович Барбул</div>
+                    <div class="card-dates">Урал / Магнитогорск</div>
+                    <span class="card-tag">Уральская ветвь</span>
+                  </div>
+                  <div class="person-card kin-line" onclick="openModal('nadezhda_serg')">
+                    <span class="card-role">Супруга Гавриила</span>
+                    <div class="card-name">Надежда Сергеевна Бугранова</div>
+                    <div class="card-dates">Куликовское / Магнитогорск</div>
+                    <span class="card-tag">Дата рождения уточняется</span>
+                  </div>
                 </div>
               </div>
 
-              <!-- Степан Ефремович (Агент Жорж) -->
+              <!-- Семья Степана -->
               <div class="family-unit">
-                <div class="person-card repress-line" onclick="openModal('stepan_efr')">
-                  <span class="card-role">Брат дедушки • Дядя</span>
-                  <div class="card-name">Степан «Жорж» Барбул</div>
-                  <div class="card-dates">1902/04, Рыбница — Румыния</div>
-                  <span class="card-tag">Дело ГПУ №3910</span>
+                <div class="couple-row">
+                  <div class="person-card repress-line" onclick="openModal('stepan_efr')">
+                    <span class="card-role">Сын Ефрема</span>
+                    <div class="card-name">Степан «Жорж» Барбул</div>
+                    <div class="card-dates">1902/04, Рыбница — Румыния</div>
+                    <span class="card-tag">Дело ГПУ №3910</span>
+                  </div>
+                  <div class="person-card kin-line" onclick="openModal('tekla')">
+                    <span class="card-role">Супруга Степана</span>
+                    <div class="card-name">Фёкла (Текля) Таранчук</div>
+                    <div class="card-dates">ок. 1904/07 — высылка</div>
+                    <span class="card-tag">Семья Таранчук</span>
+                  </div>
                 </div>
               </div>
 
               <!-- Михаил Ефремович -->
               <div class="family-unit">
                 <div class="person-card repress-line" onclick="openModal('mikhail_efr')">
-                  <span class="card-role">Брат дедушки</span>
+                  <span class="card-role">Сын Ефрема</span>
                   <div class="card-name">Михаил Ефремович Барбул</div>
                   <div class="card-dates">1907, Шмоленки — ?</div>
                   <span class="card-tag">3 года Севера (1932)</span>
@@ -533,17 +574,17 @@
               <!-- Нина Ефремовна -->
               <div class="family-unit">
                 <div class="person-card direct-line" onclick="openModal('nina_efr')">
-                  <span class="card-role">Сестра дедушки</span>
+                  <span class="card-role">Дочь Ефрема</span>
                   <div class="card-name">Нина Ефремовна (Дивущак)</div>
                   <div class="card-dates">1910 — с. Варна (Урал)</div>
                   <span class="card-tag">Арестована ГПУ / Варна</span>
                 </div>
               </div>
 
-              <!-- Сыновья Ефрема на Урале -->
+              <!-- Другие дети Ефрема -->
               <div class="family-unit">
                 <div class="person-card" style="border-top: 4px solid var(--text-muted);" onclick="openModal('ural_brothers')">
-                  <span class="card-role">Братья и сестры дедушки</span>
+                  <span class="card-role">Дети Ефрема</span>
                   <div class="card-name">Прокофий, Андрей, Вера</div>
                   <div class="card-dates">Выезд на Урал в 1926 г.</div>
                   <span class="card-tag">+ Анисим Барбул</span>
@@ -553,7 +594,7 @@
               <!-- Степан Терентьевич / Трофимович (кузен) -->
               <div class="family-unit" style="margin-left: 40px;">
                 <div class="person-card repress-line" onclick="openModal('stepan_trof')">
-                  <span class="card-role">Двоюродный брат дедушки</span>
+                  <span class="card-role">Боковая ветвь • родство уточняется</span>
                   <div class="card-name">Степан Т. Барбул</div>
                   <div class="card-dates">1895/96 — Рыбница</div>
                   <span class="card-tag">ул. Котовского, 36</span>
@@ -563,39 +604,70 @@
             </div>
           </div>
 
-          <!-- ПОКОЛЕНИЕ IV: МАМА И РОДНЯ -->
+          <!-- ПОКОЛЕНИЕ IV: ПОТОМКИ ГАВРИИЛА И СТЕПАНА -->
           <div class="level">
+            <div class="generation-label">Поколение IV • Потомки Гавриила и Степана</div>
             <div class="branch-group">
-              
               <div class="family-unit">
                 <div class="person-card direct-line" onclick="openModal('galina')">
-                  <span class="card-role">Мама базового лица</span>
-                  <div class="card-name">Галина Гавриловна Барбул</div>
+                  <span class="card-role">Дочь Гавриила и Надежды</span>
+                  <div class="card-name">Галина Гавриловна Барбул / Барбу</div>
                   <div class="card-dates">1936 • Магнитогорск</div>
-                  <span class="card-tag">Дочь Гавриила и Надежды</span>
+                  <span class="card-tag">Уральская ветвь</span>
                 </div>
               </div>
-
               <div class="family-unit">
-                <div class="person-card kin-line" onclick="openModal('tekla')">
-                  <span class="card-role">Свойственники (Жена Степана)</span>
-                  <div class="card-name">Фёкла (Текля) Таранчук</div>
-                  <div class="card-dates">ок. 1904/07 — высылка</div>
-                  <span class="card-tag">Сын Владимир</span>
+                <div class="person-card direct-line" onclick="openModal('valentina')">
+                  <span class="card-role">Дочь Гавриила и Надежды</span>
+                  <div class="card-name">Валентина Гавриловна Барбу</div>
+                  <div class="card-dates">Даты уточняются</div>
+                  <span class="card-tag">Уральская ветвь</span>
                 </div>
               </div>
-
+              <div class="family-unit">
+                <div class="person-card direct-line" onclick="openModal('tatyana')">
+                  <span class="card-role">Дочь Гавриила и Надежды</span>
+                  <div class="card-name">Татьяна Гавриловна Барбу</div>
+                  <div class="card-dates">Даты уточняются</div>
+                  <span class="card-tag">Уральская ветвь</span>
+                </div>
+              </div>
+              <div class="family-unit">
+                <div class="person-card direct-line" onclick="openModal('nikolai')">
+                  <span class="card-role">Сын Гавриила и Надежды</span>
+                  <div class="card-name">Николай Гаврилович Барбо</div>
+                  <div class="card-dates">Даты уточняются</div>
+                  <span class="card-tag">Уральская ветвь</span>
+                </div>
+              </div>
+              <div class="family-unit">
+                <div class="person-card direct-line" onclick="openModal('anatoly')">
+                  <span class="card-role">Сын Гавриила и Надежды</span>
+                  <div class="card-name">Анатолий Гаврилович Барбо</div>
+                  <div class="card-dates">Даты уточняются</div>
+                  <span class="card-tag">Уральская ветвь</span>
+                </div>
+              </div>
+              <div class="family-unit">
+                <div class="person-card kin-line" onclick="openModal('vladimir')">
+                  <span class="card-role">Сын Степана и Фёклы</span>
+                  <div class="card-name">Владимир Барбул</div>
+                  <div class="card-dates">Даты уточняются</div>
+                  <span class="card-tag">Рыбницкая ветвь</span>
+                </div>
+              </div>
             </div>
           </div>
 
-          <!-- ПОКОЛЕНИЕ V: БАЗОВОЕ ЛИЦО -->
+          <!-- ПОКОЛЕНИЕ V: МЛАДШЕЕ ПОКОЛЕНИЕ -->
           <div class="level" style="margin-bottom: 0;">
+            <div class="generation-label">Поколение V • Младшее поколение</div>
             <div class="family-unit">
-              <div class="person-card direct-root" style="border-width: 2px; border-color: var(--gold);" onclick="openModal('nadezhda_nik')">
-                <span class="card-role" style="color: var(--gold-light);">Базовое лицо родословия</span>
-                <div class="card-name" style="color: var(--gold-light); font-size: 1.15rem;">Надежда Николаевна Барбул</div>
+              <div class="person-card direct-line" onclick="openModal('nadezhda_nik')">
+                <span class="card-role">Дочь Галины Гавриловны</span>
+                <div class="card-name">Надежда Николаевна Барбул</div>
                 <div class="card-dates">род. в 1976 г. • Магнитогорск</div>
-                <span class="card-tag" style="background: rgba(212,175,55,0.2);">Хранительница памяти рода</span>
+                <span class="card-tag">Младшее поколение</span>
               </div>
             </div>
           </div>
@@ -623,7 +695,7 @@
         <div class="timeline-content">
           <div class="timeline-year">1883 год</div>
           <h4>Рождение Трофима Родионовича Барбула</h4>
-          <p>Рыбница. Брат прадеда Ефрема, глава приднестровской ветви.</p>
+          <p>Рыбница. Брат Ефрема Родионовича, представитель приднестровской ветви.</p>
         </div>
       </div>
 
@@ -744,13 +816,13 @@
       rodion: {
         name: "Барбул Родион Родионович",
         dates: "ок. 1850–1860-е гг. • Местечко Рыбница",
-        bio: "Прапрадед. Патриарх и основатель документированных ветвей рода Барбул в Рыбнице (Подольская губерния / МАССР). Воспитал сыновей Ефрема и Трофима, чьи потомки разделились между Уралом и Приднестровьем.",
+        bio: "Старший известный предок документированных ветвей рода Барбул в Рыбнице (Подольская губерния / МАССР). Отец Ефрема и Трофима, чьи потомки образовали приднестровскую и уральскую ветви.",
         sources: "Архивные дела Прокуратуры МССР и дела ГПУ №3910; семейные свидетельства."
       },
       efrem: {
         name: "Барбул Ефрем Родионович",
         dates: "ок. 1880-е гг. — дата смерти уточняется",
-        bio: "Прадед. Жил в Рыбнице и на хуторе Шмоленки. Весной 1926 года распродал семейное имущество и уехал с частью детей на Южный Урал, спасая семью от приближающейся коллективизации и пограничного террора.",
+        bio: "Сын Родиона Родионовича. Жил в Рыбнице и на хуторе Шмоленки. Весной 1926 года распродал семейное имущество и уехал с частью детей на Южный Урал.",
         sources: "Рукописная родословная родственника («Барбул»); показания свидетелей дела №3910."
       },
       trofim: {
@@ -762,13 +834,19 @@
       gavriil: {
         name: "Барбул Гавриил Ефремович",
         dates: "Начало XX в. — Магнитогорск",
-        bio: "Дедушка Надежды Николаевны. Сын Ефрема Родионовича. Супруг Надежды Сергеевны Буграновой. Прибыл на Южный Урал (вероятно, на стройку века — Магнитострой). Отец Галины Гавриловны Барбул.",
+        bio: "Сын Ефрема Родионовича. Супруг Надежды Сергеевны Буграновой. Представитель уральской ветви рода в Магнитогорске.",
         sources: "Свидетельство о рождении дочери Галины (1936 г.); семейные архивы Магнитогорска."
+      },
+      nadezhda_serg: {
+        name: "Бугранова Надежда Сергеевна",
+        dates: "Куликовское / Магнитогорск • год рождения требует сверки",
+        bio: "Супруга Гавриила Ефремовича Барбула. В найденном свидетельстве указан 1926 год рождения и родители Сергей Тимофеевич и Анна Антоновна Буграновы. Эта дата противоречит указанному году рождения дочери Галины, поэтому связь и датировка требуют подтверждения актовыми записями.",
+        sources: "Свидетельство о рождении Надежды Сергеевны; семейные сведения."
       },
       stepan_efr: {
         name: "Барбул Степан Ефремович («Жорж-Добрянский»)",
         dates: "1902/1904, Рыбница / х. Шмоленки — Румыния",
-        bio: "Сын Ефрема, родной брат дедушки Гавриила. Весной 1931 года нелегально переплыл Днестр, бежав в Бессарабию (Румыния). Стал агентом-вербовщиком румынской разведки под псевдонимом «Жорж-Добрянский». Центральная фигура масштабного дела ГПУ 1932–1933 гг.",
+        bio: "Сын Ефрема и брат Гавриила. Весной 1931 года нелегально переплыл Днестр, бежав в Бессарабию (Румыния). В материалах ГПУ проходит под псевдонимом «Жорж-Добрянский» как агент-вербовщик румынской разведки.",
         sources: "Дело ГПУ УССР №3910 (Ф. Р-3401, оп. 2, д. 4447); база Национального архива Молдовы."
       },
       mikhail_efr: {
@@ -796,10 +874,34 @@
         sources: "Фонд № 24/УСО, протокол допроса 1932 года."
       },
       galina: {
-        name: "Барбул Галина Гавриловна",
+        name: "Галина Гавриловна Барбул / Барбу",
         dates: "1936, г. Магнитогорск",
-        bio: "Мама Надежды Николаевны. Родилась на Урале в семье Гавриила Ефремовича Барбула и Надежды Сергеевны Буграновой.",
+        bio: "Дочь Гавриила Ефремовича Барбула и, по семейным сведениям, Надежды Сергеевны Буграновой. Родилась в Магнитогорске. Мать Надежды Николаевны.",
         sources: "Свидетельство о рождении (Магнитогорск); воспоминания семьи."
+      },
+      valentina: {
+        name: "Валентина Гавриловна Барбу",
+        dates: "Даты и место рождения уточняются",
+        bio: "Дочь Гавриила Ефремовича и Надежды Сергеевны; представительница уральской ветви семьи.",
+        sources: "Семейные сведения; требуется документальное подтверждение."
+      },
+      tatyana: {
+        name: "Татьяна Гавриловна Барбу",
+        dates: "Даты и место рождения уточняются",
+        bio: "Дочь Гавриила Ефремовича и Надежды Сергеевны; представительница уральской ветви семьи.",
+        sources: "Семейные сведения; требуется документальное подтверждение."
+      },
+      nikolai: {
+        name: "Николай Гаврилович Барбо",
+        dates: "Даты и место рождения уточняются",
+        bio: "Сын Гавриила Ефремовича и Надежды Сергеевны; представитель уральской ветви семьи.",
+        sources: "Семейные сведения; требуется документальное подтверждение."
+      },
+      anatoly: {
+        name: "Анатолий Гаврилович Барбо",
+        dates: "Даты и место рождения уточняются",
+        bio: "Сын Гавриила Ефремовича и Надежды Сергеевны; представитель уральской ветви семьи.",
+        sources: "Семейные сведения; требуется документальное подтверждение."
       },
       tekla: {
         name: "Барбул-Таранчук Фёкла (Текля) Кирилловна",
@@ -807,21 +909,27 @@
         bio: "Жена Степана Ефремовича Барбула. Дочь Кирилла Федотовича и Марины Ивановны Таранчук. Записана в протоколах допроса матери под двойной фамилией «Барбул-Таранчук, 25 лет». Мать сына Владимира.",
         sources: "Протоколы допросов свидетелей дела №3910 от 1932 г."
       },
+      vladimir: {
+        name: "Владимир Барбул",
+        dates: "Даты и место рождения уточняются",
+        bio: "Сын Степана Ефремовича Барбула и Фёклы (Текли) Кирилловны Таранчук.",
+        sources: "Семейный фотоархив и материалы дела №3910; полные данные требуют уточнения."
+      },
       nadezhda_nik: {
         name: "Барбул (Рыкунова) Надежда Николаевна",
         dates: "род. в 1976 г., г. Магнитогорск",
-        bio: "Базовое лицо генеалогического древа. Дочь Галины Гавриловны Барбул.",
+        bio: "Представительница младшего поколения уральской ветви. Дочь Галины Гавриловны Барбул.",
         sources: "Семейные свидетельства и документы личного архива."
       }
     };
 
     // TABS LOGIC
-    function switchTab(tabId) {
+    function switchTab(tabId, button) {
       document.querySelectorAll('.view-section').forEach(el => el.classList.remove('active'));
       document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
       
       document.getElementById('tab-' + tabId).classList.add('active');
-      event.target.classList.add('active');
+      button.classList.add('active');
     }
 
     // MODAL LOGIC
