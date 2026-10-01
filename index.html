@@ -1,121 +1,1690 @@
 <!doctype html>
 <html lang="ru">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-  <meta name="description" content="Документальная семейная летопись рода Барбул: родословное древо, хронология, архивные дела и вопросы исследования.">
-  <title>Род Барбул — семейная летопись</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <style>
-    :root{--paper:#f3efe6;--paper-2:#e9e1d2;--ink:#17201f;--muted:#66706b;--line:#c9beaa;--red:#9d392f;--red-soft:#f0ddd7;--green:#2e6656;--green-soft:#dbe8e1;--amber:#a76b1e;--amber-soft:#efe2c9;--white:#fffdf8;--shadow:0 18px 55px rgba(48,39,28,.12);--radius:18px}
-    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Arial,sans-serif;font-size:16px;line-height:1.55}button,input{font:inherit}button{color:inherit}.serif{font-family:Georgia,"Times New Roman",serif}.wrap{width:min(1440px,calc(100% - 40px));margin:auto}
-    .top{position:sticky;top:0;z-index:30;background:rgba(243,239,230,.9);backdrop-filter:blur(16px);border-bottom:1px solid rgba(79,69,54,.16)}.top-inner{height:72px;display:flex;align-items:center;gap:26px}.brand{display:flex;align-items:center;gap:12px;font-weight:760;white-space:nowrap}.seal{width:38px;height:38px;border:1px solid var(--red);border-radius:50%;display:grid;place-items:center;color:var(--red);font-family:Georgia;font-size:20px}.nav{display:flex;gap:5px;margin-left:auto}.nav button{border:0;background:transparent;border-radius:999px;padding:10px 15px;cursor:pointer;color:#53605b}.nav button:hover,.nav button.active{background:var(--ink);color:#fff}.search-btn{border:1px solid var(--line);background:var(--white);padding:9px 13px;border-radius:999px;cursor:pointer;display:flex;gap:8px;align-items:center}.search-btn kbd{font-size:12px;color:var(--muted)}
-    .hero{padding:56px 0 34px;border-bottom:1px solid var(--line);background:linear-gradient(135deg,rgba(255,253,248,.85),transparent 55%),radial-gradient(circle at 85% 0,rgba(157,57,47,.08),transparent 30%)}.eyebrow{color:var(--red);text-transform:uppercase;letter-spacing:.14em;font-size:12px;font-weight:800}.hero-grid{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(320px,.65fr);align-items:end;gap:48px}.hero h1{font-size:clamp(46px,6vw,86px);line-height:.95;letter-spacing:-.045em;margin:18px 0 20px;font-weight:500}.hero p{max-width:760px;font-size:19px;color:#56615d;margin:0}.stats{display:grid;grid-template-columns:repeat(2,1fr);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:rgba(255,253,248,.75)}.stat{padding:20px}.stat:nth-child(odd){border-right:1px solid var(--line)}.stat:nth-child(-n+2){border-bottom:1px solid var(--line)}.stat b{display:block;font:500 32px Georgia}.stat span{font-size:13px;color:var(--muted)}
-    main{padding:36px 0 80px}.view{display:none}.view.active{display:block}.section-head{display:flex;align-items:end;justify-content:space-between;gap:24px;margin-bottom:22px}.section-head h2{font-size:clamp(30px,4vw,48px);font-weight:500;line-height:1.05;margin:5px 0}.section-head p{margin:0;color:var(--muted);max-width:600px}.legend{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}.pill{display:inline-flex;align-items:center;gap:7px;padding:7px 10px;border:1px solid var(--line);border-radius:999px;background:rgba(255,253,248,.75);font-size:12px}.dot{width:8px;height:8px;border-radius:50%}.confirmed{background:var(--green)}.probable{background:var(--amber)}.hypothesis{background:var(--red)}
-    .tree-shell{position:relative;border:1px solid var(--line);border-radius:22px;background:var(--white);box-shadow:var(--shadow);overflow:hidden}.tree-note{display:flex;justify-content:space-between;gap:15px;padding:13px 17px;border-bottom:1px solid var(--line);font-size:13px;color:var(--muted);background:#faf6ed}.tree-controls{display:flex;gap:7px}.icon-btn{width:36px;height:36px;border:1px solid var(--line);border-radius:10px;background:var(--white);cursor:pointer}.icon-btn:hover{border-color:var(--red);color:var(--red)}.tree-viewport{height:690px;overflow:hidden;touch-action:none;cursor:grab;position:relative;background-image:linear-gradient(rgba(70,60,45,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(70,60,45,.035) 1px,transparent 1px);background-size:32px 32px}.tree-viewport.grabbing{cursor:grabbing}.tree-stage{width:1660px;height:1260px;position:absolute;transform-origin:0 0}.tree-lines{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}.tree-lines path{fill:none;stroke:#928570;stroke-width:2}.tree-lines path.uncertain{stroke-dasharray:7 6;stroke:var(--red)}.generation{position:absolute;left:30px;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#8d806c;transform:rotate(-90deg);transform-origin:left top}.person{position:absolute;width:220px;min-height:112px;text-align:left;border:1px solid #cbc0ad;border-top:4px solid var(--green);border-radius:13px;background:#fffdf8;padding:14px 15px;box-shadow:0 8px 22px rgba(40,33,23,.09);cursor:pointer;transition:.2s}.person:hover,.person:focus-visible{transform:translateY(-3px);box-shadow:0 13px 28px rgba(40,33,23,.15);outline:2px solid rgba(157,57,47,.22)}.person[data-status="probable"]{border-top-color:var(--amber)}.person[data-status="hypothesis"]{border-top-color:var(--red)}.person .role{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}.person strong{display:block;font:600 18px/1.15 Georgia;margin:6px 0}.person small{font-size:12px;color:var(--muted)}.person .branch{margin-top:9px;font-size:11px;color:var(--red)}
-    .timeline-layout{display:grid;grid-template-columns:300px 1fr;gap:40px}.era-nav{position:sticky;top:100px;align-self:start}.era-nav button{width:100%;text-align:left;border:0;border-left:2px solid var(--line);background:transparent;padding:10px 16px;color:var(--muted);cursor:pointer}.era-nav button:hover{border-color:var(--red);color:var(--ink)}.timeline{border-left:1px solid var(--line);padding-left:42px}.event{position:relative;padding:0 0 46px}.event:before{content:"";position:absolute;width:11px;height:11px;border-radius:50%;background:var(--paper);border:3px solid var(--red);left:-50px;top:7px}.event .year{color:var(--red);font-weight:800;font-size:13px;letter-spacing:.06em}.event h3{font:500 28px/1.15 Georgia;margin:7px 0 10px}.event p{max-width:760px;color:#58625e;margin:0}.source-note{display:inline-block;margin-top:12px;padding:6px 10px;background:var(--paper-2);border-radius:7px;font-size:12px;color:#675d50}
-    .archive-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:16px}.archive-card{grid-column:span 6;border:1px solid var(--line);border-radius:var(--radius);padding:25px;background:var(--white);min-height:235px;position:relative;overflow:hidden}.archive-card.featured{grid-column:span 8;background:var(--ink);color:#fff}.archive-card.small{grid-column:span 4}.archive-card .num{font:500 54px Georgia;color:rgba(157,57,47,.26);position:absolute;right:20px;top:6px}.archive-card.featured .num{color:rgba(255,255,255,.1)}.archive-card h3{font:500 27px/1.15 Georgia;margin:28px 0 13px;max-width:500px}.archive-card p{color:var(--muted);margin:0}.archive-card.featured p{color:#cad1ce}.meta{display:flex;flex-wrap:wrap;gap:7px;margin-top:20px}.meta span{font-size:12px;border:1px solid currentColor;border-radius:999px;padding:5px 9px;opacity:.8}
-    .method{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.method-card{border:1px solid var(--line);border-radius:var(--radius);padding:24px;background:var(--white)}.method-card .status{font-size:12px;text-transform:uppercase;letter-spacing:.1em;font-weight:800}.method-card h3{font:500 25px Georgia;margin:12px 0}.method-card p{color:var(--muted);margin:0}.about-box{margin-top:34px;padding:30px;border:1px solid var(--line);border-radius:var(--radius);display:grid;grid-template-columns:1fr 1fr;gap:40px;background:#ede5d6}.about-box h3{font:500 32px Georgia;margin:0 0 12px}.about-box p{margin:0;color:#59615d}.updated{display:flex;align-items:center;justify-content:flex-end;text-align:right;font-size:13px;color:var(--muted)}
-    .drawer{position:fixed;inset:0;z-index:60;display:none}.drawer.open{display:block}.backdrop{position:absolute;inset:0;background:rgba(18,22,21,.5);backdrop-filter:blur(4px)}.panel{position:absolute;right:0;top:0;height:100%;width:min(540px,100%);background:var(--white);padding:28px;overflow:auto;box-shadow:-30px 0 70px rgba(0,0,0,.2);animation:slide .25s ease-out}@keyframes slide{from{transform:translateX(35px);opacity:0}}.panel-close{float:right;border:1px solid var(--line);background:transparent;width:40px;height:40px;border-radius:50%;cursor:pointer}.person-status{display:inline-flex;margin-top:45px;border-radius:999px;padding:6px 10px;font-size:12px;font-weight:750}.person-status.confirmed{background:var(--green-soft);color:var(--green)}.person-status.probable{background:var(--amber-soft);color:#765018}.person-status.hypothesis{background:var(--red-soft);color:var(--red)}.panel h2{font:500 clamp(34px,5vw,52px)/1.02 Georgia;margin:17px 0 10px}.panel .dates{color:var(--red);font-weight:700}.panel h3{font-size:13px;text-transform:uppercase;letter-spacing:.11em;margin:32px 0 10px}.panel p{color:#4f5955}.source-box{border-left:3px solid var(--red);background:var(--paper);padding:14px 16px;border-radius:0 10px 10px 0}.copy-link{margin-top:22px;border:1px solid var(--line);background:transparent;border-radius:10px;padding:10px 14px;cursor:pointer}
-    .search-overlay{position:fixed;inset:0;z-index:70;background:rgba(23,32,31,.65);display:none;padding:9vh 20px}.search-overlay.open{display:block}.search-box{max-width:680px;margin:auto;background:var(--white);border-radius:18px;overflow:hidden;box-shadow:0 30px 90px rgba(0,0,0,.3)}.search-input{width:100%;border:0;border-bottom:1px solid var(--line);font-size:20px;padding:20px 22px;outline:none;background:transparent}.results{max-height:55vh;overflow:auto;padding:8px}.result{width:100%;border:0;background:transparent;border-radius:10px;text-align:left;padding:13px;cursor:pointer}.result:hover{background:var(--paper)}.result strong{display:block}.result small{color:var(--muted)}.empty{padding:25px;color:var(--muted);text-align:center}
-    footer{border-top:1px solid var(--line);padding:26px 0;color:var(--muted);font-size:13px}.footer-inner{display:flex;justify-content:space-between;gap:20px}.mobile-select{display:none}
-    @media(max-width:900px){.wrap{width:min(100% - 24px,720px)}.top-inner{height:auto;min-height:66px;flex-wrap:wrap;padding:10px 0}.nav{order:3;width:100%;overflow:auto;padding-bottom:2px;margin:0}.nav button{white-space:nowrap}.search-btn{margin-left:auto}.hero{padding-top:38px}.hero-grid{grid-template-columns:1fr}.hero h1{font-size:56px}.stats{max-width:520px}.section-head{align-items:start;flex-direction:column}.legend{justify-content:flex-start}.tree-viewport{height:620px}.timeline-layout{grid-template-columns:1fr}.era-nav{display:none}.timeline{padding-left:32px;margin-left:7px}.event:before{left:-40px}.archive-card,.archive-card.featured,.archive-card.small{grid-column:span 12}.method{grid-template-columns:1fr}.about-box{grid-template-columns:1fr}.updated{justify-content:flex-start;text-align:left}.footer-inner{flex-direction:column}.tree-note span:first-child{display:none}}
-    @media(max-width:560px){.hero h1{font-size:44px}.hero p{font-size:17px}.stat{padding:15px}.stat b{font-size:26px}.brand span:last-child{display:none}.search-btn kbd,.search-btn .search-label{display:none}.tree-shell{border-radius:14px}.tree-viewport{height:70vh;max-height:640px}.panel{padding:22px}.archive-card{padding:21px}.nav button{font-size:14px;padding:9px 12px}}
-    @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Род Барбул</title>
+<meta name="description" content="Визуальное генеалогическое древо рода Барбул: от Василия Онуфриевича Барбула (ок. 1803, Рыбница) через Иродиона (Родиона) Васильевича до наших дней">
+<style>
+:root{
+  --ink:#2b2420;
+  --ink-soft:#6b5f54;
+  --paper:#f4ede0;
+  --paper-raised:#ece2d0;
+  --line:#c9b99b;
+  --accent:#8a3324;
+  --accent-soft:#b8563f;
+  --gold:#9c7a34;
+  --confirmed:#3f6b46;
+  --hypothesis:#9c7a34;
+  --card-shadow: 0 1px 0 rgba(43,36,32,.08);
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ink:#ece4d6;
+    --ink-soft:#b3a690;
+    --paper:#211c17;
+    --paper-raised:#2b241d;
+    --line:#4a3f30;
+    --accent:#d67a5f;
+    --accent-soft:#e39d87;
+    --gold:#d3ac5c;
+    --confirmed:#7fb987;
+    --hypothesis:#d3ac5c;
+    --card-shadow: 0 1px 0 rgba(0,0,0,.3);
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"]{
+  --ink:#ece4d6;
+  --ink-soft:#b3a690;
+  --paper:#211c17;
+  --paper-raised:#2b241d;
+  --line:#4a3f30;
+  --accent:#d67a5f;
+  --accent-soft:#e39d87;
+  --gold:#d3ac5c;
+  --confirmed:#7fb987;
+  --hypothesis:#d3ac5c;
+  --card-shadow: 0 1px 0 rgba(0,0,0,.3);
+  color-scheme: dark;
+}
 
-    /* Тёмный дизайн первой версии */
-    :root{--paper:#0c0f17;--paper-2:#151b2a;--ink:#e2e8f0;--muted:#94a3b8;--line:rgba(212,175,55,.24);--red:#f43f5e;--red-soft:rgba(244,63,94,.14);--green:#10b981;--green-soft:rgba(16,185,129,.14);--amber:#d4af37;--amber-soft:rgba(212,175,55,.14);--white:#161b2a;--shadow:0 18px 55px rgba(0,0,0,.38)}
-    body{font-family:'Plus Jakarta Sans',sans-serif;background-color:#0c0f17;background-image:radial-gradient(circle at 10% 20%,rgba(212,175,55,.07) 0,transparent 38%),radial-gradient(circle at 90% 80%,rgba(59,130,246,.07) 0,transparent 38%),linear-gradient(to bottom,#080a10,#0d111a);color:var(--ink)}
-    .serif,.hero h1,.section-head h2,.stat b,.event h3,.archive-card h3,.method-card h3,.about-box h3,.panel h2{font-family:'Cinzel',Georgia,serif}
-    .top{background:rgba(8,10,16,.9);border-bottom-color:var(--line);box-shadow:0 8px 28px rgba(0,0,0,.22)}
-    .brand{color:#f3e5ab}.seal{border-color:#d4af37;color:#d4af37;box-shadow:0 0 18px rgba(212,175,55,.18)}
-    .nav button{color:#a9b4c6}.nav button:hover,.nav button.active{background:#d4af37;color:#0c0f17;box-shadow:0 0 15px rgba(212,175,55,.25)}
-    .search-btn{border-color:var(--line);background:rgba(22,27,42,.88);color:#e2e8f0}.search-btn:hover{border-color:#d4af37}.search-btn kbd{color:#94a3b8}
-    .hero{border-bottom-color:var(--line);background:linear-gradient(135deg,rgba(212,175,55,.06),transparent 56%),radial-gradient(circle at 85% 0,rgba(59,130,246,.08),transparent 32%)}
-    .eyebrow{color:#d4af37}.hero h1{color:#f3e5ab;text-shadow:0 0 24px rgba(212,175,55,.25)}.hero p,.section-head p{color:#94a3b8}
-    .stats{border-color:var(--line);background:rgba(22,27,42,.72);box-shadow:0 16px 38px rgba(0,0,0,.22)}.stat:nth-child(odd),.stat:nth-child(-n+2){border-color:var(--line)}.stat b{color:#f3e5ab}.stat span{color:#94a3b8}
-    .pill{border-color:rgba(255,255,255,.1);background:rgba(22,27,42,.82);color:#cbd5e1}
-    .tree-shell{border-color:var(--line);background:rgba(15,20,32,.78);box-shadow:inset 0 0 44px rgba(0,0,0,.5),0 18px 55px rgba(0,0,0,.28)}
-    .tree-note{border-bottom-color:var(--line);background:rgba(18,23,36,.92);color:#94a3b8}.icon-btn{border-color:var(--line);background:#161b2a;color:#e2e8f0}.icon-btn:hover{border-color:#d4af37;color:#f3e5ab}
-    .tree-viewport{background-color:rgba(10,14,23,.74);background-image:linear-gradient(rgba(212,175,55,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(212,175,55,.035) 1px,transparent 1px)}
-    .tree-lines path{stroke:rgba(212,175,55,.5)}.tree-lines path.uncertain{stroke:#f43f5e}.generation{color:#718096}
-    .person{border-color:rgba(255,255,255,.09);border-top-color:#10b981;background:rgba(22,27,42,.9);box-shadow:0 9px 24px rgba(0,0,0,.34);color:#e2e8f0;backdrop-filter:blur(10px)}
-    .person:hover,.person:focus-visible{background:rgba(30,38,59,.96);border-color:#d4af37;box-shadow:0 14px 30px rgba(0,0,0,.46),0 0 16px rgba(212,175,55,.13);outline-color:rgba(212,175,55,.3)}
-    .person[data-status="probable"]{border-top-color:#d4af37}.person[data-status="hypothesis"]{border-top-color:#f43f5e}.person .role{color:#d4af37}.person strong{color:#fff}.person small{color:#94a3b8}.person .branch{color:#7dd3fc}
-    .timeline{border-left-color:var(--line)}.event:before{background:#0c0f17;border-color:#d4af37}.event .year{color:#d4af37}.event p{color:#aab4c3}.source-note{background:#161b2a;color:#c2cada;border:1px solid rgba(255,255,255,.07)}.era-nav button{border-color:var(--line);color:#94a3b8}.era-nav button:hover{border-color:#d4af37;color:#f3e5ab}
-    .archive-card{border-color:rgba(255,255,255,.09);background:rgba(22,27,42,.86);box-shadow:0 12px 30px rgba(0,0,0,.2)}.archive-card.featured{background:linear-gradient(145deg,#1b2132,#101521);border-color:rgba(212,175,55,.38)}.archive-card .num{color:rgba(212,175,55,.22)}.archive-card.featured .num{color:rgba(212,175,55,.15)}.archive-card h3{color:#f3e5ab}.archive-card p,.archive-card.featured p{color:#aab4c3}
-    .method-card{border-color:rgba(255,255,255,.09);background:rgba(22,27,42,.86)}.method-card h3{color:#f3e5ab}.method-card p{color:#aab4c3}.about-box{border-color:var(--line);background:linear-gradient(135deg,rgba(212,175,55,.08),rgba(22,27,42,.9))}.about-box h3{color:#f3e5ab}.about-box p,.updated{color:#aab4c3}
-    .drawer .backdrop{background:rgba(2,5,10,.76)}.panel{background:#121724;color:#e2e8f0;border-left:1px solid var(--line)}.panel-close{border-color:var(--line);color:#e2e8f0}.panel .dates{color:#d4af37}.panel p{color:#b7c0ce}.source-box{border-left-color:#d4af37;background:#0c101a}.copy-link{border-color:var(--line);color:#e2e8f0}.copy-link:hover{border-color:#d4af37;color:#f3e5ab}
-    .search-overlay{background:rgba(2,5,10,.8)}.search-box{background:#121724;border:1px solid var(--line)}.search-input{border-bottom-color:var(--line);color:#fff}.search-input::placeholder{color:#718096}.result{color:#e2e8f0}.result:hover{background:#1b2233}.result small,.empty{color:#94a3b8}
-    footer{border-top-color:var(--line);color:#94a3b8}
-    @media(max-width:900px){.nav{scrollbar-width:none}.nav::-webkit-scrollbar{display:none}}
-  </style>
+*{box-sizing:border-box}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:"Source Serif 4","Georgia",serif;
+  font-size:16px;
+  line-height:1.5;
+  padding-inline:20px;
+  padding-block:32px 64px;
+}
+
+.wrap{max-width:920px;margin:0 auto}
+
+.masthead{
+  text-align:center;
+  margin-bottom:8px;
+}
+.masthead .kicker{
+  font-family:"Public Sans","Helvetica Neue",sans-serif;
+  font-size:11px;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:var(--gold);
+  margin:0 0 10px;
+}
+.masthead h1{
+  font-family:"Playfair Display","Georgia",serif;
+  font-weight:700;
+  font-size:clamp(32px,7vw,52px);
+  margin:0 0 10px;
+  letter-spacing:.01em;
+  text-wrap:balance;
+}
+.masthead .sub{
+  color:var(--ink-soft);
+  font-size:15px;
+  max-width:560px;
+  margin:0 auto 20px;
+  text-wrap:balance;
+}
+.divider{
+  width:100%;
+  height:1px;
+  background:linear-gradient(to right, transparent, var(--line), transparent);
+  margin:24px 0 32px;
+}
+
+.legend{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px 18px;
+  justify-content:center;
+  font-family:"Public Sans","Helvetica Neue",sans-serif;
+  font-size:12px;
+  color:var(--ink-soft);
+  margin-bottom:36px;
+}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.dot{width:8px;height:8px;border-radius:50%;display:inline-block;flex:none}
+.dot.confirmed{background:var(--confirmed)}
+.dot.hypothesis{background:var(--hypothesis)}
+
+.privacy-note{
+  font-family:"Public Sans","Helvetica Neue",sans-serif;
+  font-size:12.5px;
+  color:var(--ink-soft);
+  background:var(--paper-raised);
+  border:1px solid var(--line);
+  border-radius:8px;
+  padding:12px 16px;
+  margin:0 0 36px;
+  line-height:1.55;
+}
+.privacy-note b{color:var(--ink)}
+
+.branch-nav{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  justify-content:center;
+  margin-bottom:44px;
+}
+.branch-nav a{
+  font-family:"Public Sans","Helvetica Neue",sans-serif;
+  font-size:12.5px;
+  color:var(--accent);
+  text-decoration:none;
+  border:1px solid var(--line);
+  border-radius:999px;
+  padding:6px 14px;
+  transition:background .15s ease, border-color .15s ease;
+}
+.branch-nav a:hover{background:var(--paper-raised);border-color:var(--accent-soft)}
+
+section.gen0{
+  text-align:center;
+  margin-bottom:8px;
+}
+.root-card{
+  display:inline-block;
+  background:var(--paper-raised);
+  border:1.5px solid var(--gold);
+  border-radius:10px;
+  padding:18px 28px;
+  box-shadow:var(--card-shadow);
+}
+.root-card .name{
+  font-family:"Playfair Display",serif;
+  font-weight:700;
+  font-size:22px;
+  margin-bottom:4px;
+}
+.root-card .dates{
+  font-family:"Public Sans",sans-serif;
+  font-size:12.5px;
+  color:var(--ink-soft);
+  letter-spacing:.02em;
+}
+
+.trunk{
+  width:1px;
+  height:34px;
+  background:var(--line);
+  margin:0 auto;
+}
+
+.children-row{
+  display:flex;
+  justify-content:center;
+  gap:0;
+  margin-bottom:6px;
+  position:relative;
+}
+
+.tree{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
+
+/* generic node/branch tree styles */
+ul.gtree{
+  list-style:none;
+  margin:0;
+  padding:0;
+  display:flex;
+  justify-content:center;
+  gap:26px;
+  position:relative;
+}
+ul.gtree.vertical{
+  flex-direction:column;
+  align-items:flex-start;
+  gap:0;
+}
+
+.person{
+  background:var(--paper-raised);
+  border:1px solid var(--line);
+  border-radius:8px;
+  padding:10px 14px;
+  box-shadow:var(--card-shadow);
+  min-width:150px;
+}
+.person .name{
+  font-family:"Playfair Display",serif;
+  font-weight:600;
+  font-size:15.5px;
+  line-height:1.25;
+  margin-bottom:2px;
+}
+.person .name.base{color:var(--accent)}
+.person .dates{
+  font-family:"Public Sans",sans-serif;
+  font-size:11.5px;
+  color:var(--ink-soft);
+}
+.person .tag{
+  display:inline-block;
+  margin-top:5px;
+  font-family:"Public Sans",sans-serif;
+  font-size:10px;
+  letter-spacing:.04em;
+  text-transform:uppercase;
+  padding:1px 7px;
+  border-radius:999px;
+}
+.person .tag.confirmed{background:color-mix(in srgb, var(--confirmed) 18%, transparent);color:var(--confirmed)}
+.person .tag.hypothesis{background:color-mix(in srgb, var(--hypothesis) 18%, transparent);color:var(--hypothesis)}
+
+details.branch{
+  margin-top:26px;
+}
+details.branch > summary{
+  list-style:none;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-family:"Playfair Display",serif;
+  font-weight:700;
+  font-size:21px;
+  padding:10px 0;
+  border-top:1px solid var(--line);
+  user-select:none;
+}
+details.branch > summary::-webkit-details-marker{display:none}
+details.branch > summary .chev{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:22px;height:22px;
+  border:1px solid var(--line);
+  border-radius:50%;
+  font-family:"Public Sans",sans-serif;
+  font-size:13px;
+  color:var(--ink-soft);
+  transition:transform .2s ease;
+  flex:none;
+}
+details.branch[open] > summary .chev{transform:rotate(45deg)}
+details.branch > summary .n{
+  font-family:"Public Sans",sans-serif;
+  font-size:11.5px;
+  color:var(--ink-soft);
+  font-weight:400;
+  margin-left:auto;
+}
+
+.branch-body{
+  padding:6px 0 28px;
+}
+.branch-body .lede{
+  font-size:14.5px;
+  color:var(--ink-soft);
+  max-width:640px;
+  margin:0 0 20px;
+}
+.branch-body .lede b{color:var(--ink);font-weight:600}
+
+/* Indented family tree (like a court chart) */
+.fam{
+  margin-left:0;
+}
+.fam ul{
+  list-style:none;
+  margin:0;
+  padding-left:26px;
+  border-left:1px solid var(--line);
+}
+.fam > ul{border-left:none;padding-left:0}
+.fam li{
+  position:relative;
+  padding:9px 0 9px 20px;
+}
+.fam li::before{
+  content:"";
+  position:absolute;
+  left:0;top:0;
+  width:20px;height:23px;
+  border-left:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+}
+.fam li:last-child{padding-bottom:0}
+.fam > li:last-child::after{
+  content:"";
+  position:absolute;
+  left:-1px;top:23px;bottom:0;
+  width:1px;
+  background:var(--paper);
+}
+.fam ul li:last-child::after{
+  content:"";
+  position:absolute;
+  left:-1px;top:23px;bottom:0;
+  width:1px;
+  background:var(--paper);
+}
+
+.union{
+  font-family:"Public Sans",sans-serif;
+  font-size:12.5px;
+  color:var(--ink-soft);
+  margin:2px 0 0 2px;
+}
+.union .plus{color:var(--accent-soft);margin-right:4px}
+
+.note{
+  font-family:"Public Sans",sans-serif;
+  font-size:12px;
+  color:var(--ink-soft);
+  margin-top:4px;
+  line-height:1.5;
+  max-width:520px;
+}
+.note.warn{color:var(--accent-soft)}
+.note.privacy{
+  font-style:italic;
+  background:color-mix(in srgb, var(--gold) 12%, transparent);
+  border-left:2px solid var(--gold);
+  padding:8px 12px;
+  border-radius:0 6px 6px 0;
+  margin-top:10px;
+  max-width:560px;
+}
+
+.callout{
+  background:var(--paper-raised);
+  border:1px solid var(--line);
+  border-radius:8px;
+  padding:14px 18px;
+  font-size:13.5px;
+  color:var(--ink-soft);
+  margin:16px 0 22px;
+  max-width:640px;
+}
+.callout b{color:var(--ink)}
+
+table.sources{
+  width:100%;
+  border-collapse:collapse;
+  font-family:"Public Sans",sans-serif;
+  font-size:12.5px;
+  margin-top:10px;
+}
+table.sources th,table.sources td{
+  text-align:left;
+  padding:8px 10px;
+  border-bottom:1px solid var(--line);
+  vertical-align:top;
+}
+table.sources th{
+  color:var(--ink-soft);
+  font-weight:600;
+  text-transform:uppercase;
+  font-size:10.5px;
+  letter-spacing:.05em;
+}
+.sources-wrap{overflow-x:auto}
+
+footer{
+  margin-top:56px;
+  padding-top:20px;
+  border-top:1px solid var(--line);
+  font-family:"Public Sans",sans-serif;
+  font-size:12px;
+  color:var(--ink-soft);
+  text-align:center;
+}
+
+@media (max-width:600px){
+  .person{min-width:0;width:100%}
+  details.branch > summary{font-size:18px}
+}
+
+.tag.identity{
+  background:color-mix(in srgb, var(--accent) 14%, transparent);
+  color:var(--accent);
+}
+.source-ref{
+  color:var(--accent);
+  text-decoration:none;
+  font-family:"Public Sans",sans-serif;
+  font-weight:600;
+}
+.source-ref:hover{text-decoration:underline}
+.identity-link{
+  margin:12px auto 18px;
+  max-width:640px;
+  border-left:3px solid var(--gold);
+  background:color-mix(in srgb, var(--gold) 10%, transparent);
+  border-radius:0 8px 8px 0;
+  padding:11px 14px;
+  font-family:"Public Sans",sans-serif;
+  font-size:12.5px;
+  color:var(--ink-soft);
+  text-align:left;
+}
+.early-family{
+  max-width:760px;
+  margin:0 auto 20px;
+  text-align:left;
+}
+
+
+/* ===== Brex-inspired genealogy skin ===== */
+:root{
+  --ink:#000000;
+  --ink-soft:#60646c;
+  --paper:#ffffff;
+  --paper-raised:#ffffff;
+  --line:#b9bbc6;
+  --accent:#ff5900;
+  --accent-soft:#ff5900;
+  --gold:#ff5900;
+  --confirmed:#1f6f43;
+  --hypothesis:#a44b00;
+  --card-shadow:none;
+  color-scheme:light;
+}
+
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ink:#000000;
+    --ink-soft:#60646c;
+    --paper:#ffffff;
+    --paper-raised:#ffffff;
+    --line:#b9bbc6;
+    --accent:#ff5900;
+    --accent-soft:#ff5900;
+    --gold:#ff5900;
+    --confirmed:#1f6f43;
+    --hypothesis:#a44b00;
+    --card-shadow:none;
+    color-scheme:light;
+  }
+}
+:root[data-theme="dark"]{color-scheme:light}
+
+html{scroll-behavior:smooth}
+
+body{
+  margin:0;
+  background:#ffffff;
+  color:#000000;
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+  font-size:16px;
+  line-height:1.5;
+  letter-spacing:-0.01em;
+  padding:0;
+}
+
+.wrap{
+  max-width:1200px;
+  margin:0 auto;
+}
+
+.masthead{
+  text-align:left;
+  margin:0;
+  padding:96px 32px 78px;
+  background:#ffffff;
+  border-bottom:1px solid #e5e5e9;
+}
+
+.masthead .kicker{
+  display:inline-block;
+  margin:0 0 24px;
+  color:#60646c;
+  font-size:13px;
+  line-height:1.3;
+  font-weight:600;
+  letter-spacing:-0.01em;
+  text-transform:none;
+}
+
+.masthead h1{
+  max-width:820px;
+  margin:0 0 24px;
+  font-family:Inter,ui-sans-serif,system-ui,sans-serif;
+  font-size:clamp(48px,7vw,72px);
+  line-height:1;
+  letter-spacing:-0.03em;
+  font-weight:600;
+  color:#000;
+}
+
+.masthead .sub{
+  max-width:760px;
+  margin:0;
+  color:#60646c;
+  font-size:20px;
+  line-height:1.4;
+  letter-spacing:-0.01em;
+}
+
+.divider{display:none}
+
+.legend{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:flex-start;
+  gap:16px 24px;
+  margin:0;
+  padding:20px 32px;
+  background:#15191e;
+  color:#fff;
+  font-size:12px;
+  font-weight:500;
+}
+
+.legend span{
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+}
+
+.dot{width:8px;height:8px;border-radius:50%}
+.dot.confirmed{background:#ffffff}
+.dot.hypothesis{background:#ff5900}
+
+.privacy-note{
+  max-width:960px;
+  margin:48px auto;
+  padding:22px 24px;
+  border:1px solid #b9bbc6;
+  border-radius:12px;
+  background:#fff;
+  color:#60646c;
+  font-size:14px;
+  line-height:1.5;
+}
+
+.branch-nav{
+  position:sticky;
+  top:0;
+  z-index:40;
+  display:flex;
+  flex-wrap:nowrap;
+  overflow-x:auto;
+  gap:24px;
+  justify-content:flex-start;
+  margin:0;
+  padding:17px 32px;
+  background:rgba(255,255,255,.96);
+  border-bottom:1px solid #b9bbc6;
+  scrollbar-width:none;
+}
+.branch-nav::-webkit-scrollbar{display:none}
+
+.branch-nav a{
+  flex:none;
+  color:#000;
+  text-decoration:none;
+  border:0;
+  border-radius:0;
+  padding:0;
+  font-size:14px;
+  font-weight:500;
+  letter-spacing:-0.01em;
+}
+.branch-nav a:hover{color:#ff5900;background:transparent}
+
+section.gen0{
+  margin:0;
+  padding:64px 32px 72px;
+  text-align:left;
+  background:#f3f3f7;
+}
+
+section.gen0:nth-of-type(even){background:#fff}
+
+.root-card{
+  display:block;
+  max-width:820px;
+  background:#fff;
+  border:1px solid #b9bbc6;
+  border-radius:12px;
+  padding:28px 32px;
+  box-shadow:none;
+}
+
+.root-card .name{
+  margin-bottom:10px;
+  font-family:Inter,ui-sans-serif,system-ui,sans-serif;
+  font-size:clamp(30px,4.5vw,48px);
+  line-height:1.12;
+  letter-spacing:-0.025em;
+  font-weight:600;
+  color:#000;
+}
+
+.root-card .dates{
+  font-size:14px;
+  color:#60646c;
+  letter-spacing:-0.01em;
+}
+
+.trunk{
+  width:2px;
+  height:36px;
+  background:#b9bbc6;
+  margin:0 0 0 36px;
+}
+
+.person{
+  background:#fff;
+  border:1px solid #b9bbc6;
+  border-radius:12px;
+  padding:16px 18px;
+  box-shadow:none;
+  min-width:180px;
+}
+
+.person .name{
+  font-family:Inter,ui-sans-serif,system-ui,sans-serif;
+  font-weight:600;
+  font-size:16px;
+  line-height:1.25;
+  letter-spacing:-0.01em;
+  margin-bottom:4px;
+  color:#000;
+}
+
+.person .name.base{color:#000}
+
+.person .dates{
+  font-size:12.5px;
+  line-height:1.42;
+  color:#60646c;
+}
+
+.person .tag{
+  display:inline-block;
+  margin-top:8px;
+  padding:4px 7px;
+  border-radius:6px;
+  background:#f3f3f7;
+  font-size:10px;
+  font-weight:600;
+  letter-spacing:-0.005em;
+  text-transform:none;
+}
+
+.person .tag.confirmed{
+  background:#eef6f1;
+  color:#1f6f43;
+}
+.person .tag.hypothesis{
+  background:#fff2e9;
+  color:#a44b00;
+}
+.person .tag.identity{
+  background:#fff2e9;
+  color:#a44b00;
+}
+
+details.branch{
+  margin:0;
+  background:#fff;
+  border-top:1px solid #e5e5e9;
+}
+
+details.branch:nth-of-type(even){background:#f3f3f7}
+
+details.branch > summary{
+  min-height:78px;
+  padding:26px 32px;
+  border:0;
+  color:#000;
+  font-family:Inter,ui-sans-serif,system-ui,sans-serif;
+  font-weight:600;
+  font-size:clamp(24px,3.6vw,36px);
+  line-height:1.21;
+  letter-spacing:-0.02em;
+}
+
+details.branch > summary .chev{
+  width:28px;
+  height:28px;
+  border:1px solid #b9bbc6;
+  border-radius:12px;
+  background:#fff;
+  color:#000;
+  font-size:15px;
+}
+
+details.branch > summary .n{
+  font-size:12px;
+  color:#6f737b;
+  font-weight:500;
+  letter-spacing:-0.01em;
+}
+
+details.branch[open] > summary{
+  color:#000;
+}
+
+details.branch[open] > summary::after{
+  content:"";
+  display:block;
+  width:44px;
+  height:3px;
+  margin-top:12px;
+  background:#ff5900;
+  border-radius:2px;
+}
+
+.branch-body{
+  padding:0 32px 52px;
+}
+
+.branch-body .lede{
+  max-width:760px;
+  margin:0 0 28px;
+  color:#60646c;
+  font-size:16px;
+  line-height:1.5;
+}
+
+.fam ul{
+  padding-left:28px;
+  border-left:1px solid #b9bbc6;
+}
+.fam > ul{border-left:none;padding-left:0}
+.fam li{padding:10px 0 10px 20px}
+.fam li::before{
+  width:20px;
+  height:25px;
+  border-left:1px solid #b9bbc6;
+  border-bottom:1px solid #b9bbc6;
+}
+.fam > li:last-child::after,
+.fam ul li:last-child::after{
+  background:inherit;
+}
+
+.union{
+  margin:6px 0 0 2px;
+  font-size:13px;
+  color:#60646c;
+}
+.union .plus{
+  color:#ff5900;
+  font-weight:600;
+}
+
+.note{
+  max-width:680px;
+  margin-top:6px;
+  font-size:13px;
+  line-height:1.48;
+  color:#60646c;
+}
+.note.warn{
+  color:#6f3b00;
+  border-left:3px solid #ff5900;
+  padding-left:10px;
+}
+.note.privacy{
+  background:#fff;
+  border:1px solid #b9bbc6;
+  border-radius:12px;
+  padding:12px 14px;
+}
+
+.callout,
+.identity-link{
+  max-width:780px;
+  margin:24px 0;
+  padding:22px 24px;
+  background:#fff;
+  border:1px solid #b9bbc6;
+  border-radius:12px;
+  box-shadow:none;
+  color:#60646c;
+  font-size:14px;
+  line-height:1.5;
+  text-align:left;
+}
+
+.identity-link{
+  border-left:4px solid #ff5900;
+  border-top-left-radius:0;
+  border-bottom-left-radius:0;
+}
+
+.callout b,.identity-link b{color:#000}
+
+.early-family{max-width:920px;margin:0}
+
+.source-ref{
+  color:#000;
+  text-decoration:underline;
+  text-underline-offset:2px;
+  font-weight:600;
+}
+.source-ref:hover{color:#ff5900}
+
+.sources-wrap{
+  overflow-x:auto;
+  background:#fff;
+  border:1px solid #b9bbc6;
+  border-radius:12px;
+  padding:6px 14px 14px;
+}
+
+table.sources{
+  margin:0;
+  font-size:13px;
+}
+
+table.sources th,
+table.sources td{
+  padding:13px 10px;
+  border-bottom:1px solid #e5e5e9;
+  vertical-align:top;
+}
+
+table.sources th{
+  color:#6f737b;
+  font-weight:600;
+  font-size:11px;
+  text-transform:none;
+  letter-spacing:-0.005em;
+}
+
+footer{
+  margin:0;
+  padding:56px 32px;
+  border-top:0;
+  background:#000710;
+  color:#b9bbc6;
+  text-align:left;
+  font-size:12px;
+  line-height:1.5;
+}
+
+@media (max-width:700px){
+  .masthead{padding:64px 18px 56px}
+  .masthead h1{font-size:48px}
+  .masthead .sub{font-size:18px}
+  .legend{padding-inline:18px}
+  .branch-nav{padding-inline:18px;gap:18px}
+  section.gen0{padding:44px 18px 52px}
+  .root-card{padding:22px 20px}
+  details.branch > summary{padding:22px 18px;font-size:28px}
+  details.branch > summary .n{display:none}
+  .branch-body{padding:0 18px 34px}
+  .person{width:100%;min-width:0}
+  .fam ul{padding-left:18px}
+  .fam li{padding-left:16px}
+  .fam li::before{width:16px}
+  footer{padding:42px 18px}
+}
+
+
+/* ===== Usability pass v21 ===== */
+.tree-controls{
+  display:flex;
+  gap:8px;
+  justify-content:flex-end;
+  padding:14px 32px 0;
+  background:#fff;
+}
+.tree-controls button{
+  min-height:36px;
+  padding:8px 12px;
+  border:1px solid #b9bbc6;
+  border-radius:12px;
+  background:#fff;
+  color:#000;
+  font:600 13px/1.2 Inter,ui-sans-serif,system-ui,sans-serif;
+  cursor:pointer;
+}
+.tree-controls button:hover{border-color:#000}
+.tree-controls button:active{transform:translateY(1px)}
+
+.branch-nav a{
+  min-height:32px;
+  display:inline-flex;
+  align-items:center;
+  position:relative;
+}
+.branch-nav a.is-active{
+  color:#000;
+}
+.branch-nav a.is-active::after{
+  content:"";
+  position:absolute;
+  left:0;right:0;bottom:-17px;
+  height:3px;
+  background:#ff5900;
+  border-radius:2px 2px 0 0;
+}
+
+.identity-compare{
+  margin:0;
+  padding:64px 32px 72px;
+  background:#fff;
+  border-top:1px solid #e5e5e9;
+  border-bottom:1px solid #e5e5e9;
+}
+.identity-head{max-width:780px;margin:0 0 28px}
+.identity-head .eyebrow{
+  margin:0 0 8px;
+  color:#ff5900;
+  font-size:12px;
+  line-height:1.4;
+  font-weight:600;
+  letter-spacing:.02em;
+  text-transform:uppercase;
+}
+.identity-head h2{
+  margin:0 0 10px;
+  font:600 clamp(30px,4vw,48px)/1.08 Inter,ui-sans-serif,system-ui,sans-serif;
+  letter-spacing:-.025em;
+}
+.identity-head p,.identity-note{
+  margin:0;
+  color:#60646c;
+  font-size:15px;
+  line-height:1.5;
+}
+.identity-grid{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) 48px minmax(0,1fr);
+  align-items:stretch;
+  gap:16px;
+  max-width:980px;
+}
+.identity-card{
+  position:relative;
+  padding:24px;
+  border:1px solid #b9bbc6;
+  border-radius:12px;
+  background:#fff;
+}
+.identity-card h3{
+  margin:0 0 10px;
+  font-size:20px;
+  line-height:1.3;
+  letter-spacing:-.01em;
+}
+.identity-card p{
+  margin:0 0 18px;
+  color:#60646c;
+  font-size:14px;
+  line-height:1.5;
+}
+.identity-year{
+  margin:0 0 10px;
+  color:#ff5900;
+  font-size:12px;
+  font-weight:600;
+}
+.identity-arrow{
+  align-self:center;
+  justify-self:center;
+  color:#ff5900;
+  font-size:30px;
+  font-weight:600;
+}
+.identity-note{
+  max-width:980px;
+  margin-top:18px;
+}
+.chip-row{display:flex;gap:6px;flex-wrap:wrap}
+
+.source-chip{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-width:30px;
+  min-height:26px;
+  padding:3px 7px;
+  border:1px solid #b9bbc6;
+  border-radius:6px;
+  color:#60646c;
+  text-decoration:none;
+  font-size:10.5px;
+  line-height:1;
+  font-weight:600;
+}
+.source-chip:hover{
+  color:#ff5900;
+  border-color:#ff5900;
+  text-decoration:none;
+}
+
+/* Визуальная иерархия: корень ветви чуть заметнее, потомки спокойнее */
+.branch-root{
+  border-color:#8b8d98;
+  background:#fff;
+}
+.branch-root .name{
+  font-size:18px;
+}
+.person:not(.branch-root) .name{
+  font-weight:550;
+}
+
+/* Удобство клавиатуры */
+a:focus-visible,
+button:focus-visible,
+summary:focus-visible{
+  outline:3px solid #ff5900;
+  outline-offset:3px;
+  border-radius:8px;
+}
+details.branch > summary{
+  min-height:64px;
+}
+details.branch > summary .chev{
+  min-width:28px;
+  min-height:28px;
+}
+
+/* Чтобы sticky-nav не перекрывал якоря */
+section[id],
+details[id],
+tr[id]{
+  scroll-margin-top:76px;
+}
+
+/* На узких экранах уменьшаем накопление отступов поколений */
+@media (max-width:700px){
+  .tree-controls{
+    justify-content:flex-start;
+    padding:12px 18px 0;
+    overflow-x:auto;
+  }
+  .tree-controls button{flex:none;min-height:40px}
+  .identity-compare{padding:44px 18px 52px}
+  .identity-grid{
+    grid-template-columns:1fr;
+    gap:10px;
+  }
+  .identity-arrow{
+    transform:rotate(90deg);
+    font-size:24px;
+  }
+  .fam ul ul ul{
+    padding-left:10px;
+  }
+  .fam ul ul ul li{
+    padding-left:10px;
+  }
+  .fam ul ul ul li::before{
+    width:10px;
+  }
+}
+
+
+/* ===== Early generations 1796–1848 ===== */
+.era-label{
+  margin:0 0 20px;
+  color:#ff5900;
+  font-size:12px;
+  font-weight:600;
+  letter-spacing:.02em;
+  text-transform:uppercase;
+}
+.ancestor-stack{
+  max-width:820px;
+  margin:0 0 26px;
+}
+.ancestor-card{
+  padding:24px 26px;
+  border:1px solid #b9bbc6;
+  border-radius:12px;
+  background:#fff;
+}
+.ancestor-card h2{
+  margin:0 0 8px;
+  font:600 clamp(28px,4vw,42px)/1.12 Inter,ui-sans-serif,system-ui,sans-serif;
+  letter-spacing:-.025em;
+}
+.ancestor-card p{
+  max-width:700px;
+  margin:0 0 14px;
+  color:#60646c;
+  font-size:14px;
+  line-height:1.5;
+}
+.ancestor-kicker{
+  margin:0 0 8px;
+  color:#1f6f43;
+  font-size:11px;
+  font-weight:600;
+  text-transform:uppercase;
+  letter-spacing:.02em;
+}
+.ancestor-meta{
+  color:#000 !important;
+  font-weight:500;
+}
+.direct-link,
+.hypothesis-link{
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  gap:4px;
+  margin:10px 0 10px 26px;
+  color:#60646c;
+  font-size:11px;
+  line-height:1.3;
+}
+.direct-link b,
+.hypothesis-link b{
+  font-size:22px;
+  line-height:1;
+}
+.direct-link b{color:#1f6f43}
+.hypothesis-link b{color:#a44b00}
+.hypothesis-link span{
+  display:inline-block;
+  padding:4px 7px;
+  border-radius:6px;
+  background:#fff2e9;
+  color:#a44b00;
+  font-weight:600;
+}
+.household-1796{
+  max-width:920px;
+  margin:24px 0 28px;
+}
+.household-1796 h3{
+  margin:0 0 14px;
+  font-size:20px;
+  line-height:1.3;
+}
+.household-grid{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:12px;
+}
+.mini-record{
+  padding:16px;
+  border:1px solid #b9bbc6;
+  border-radius:12px;
+  background:#fff;
+}
+.mini-record b,.mini-record span,.mini-record small{display:block}
+.mini-record b{margin-bottom:4px;font-size:15px}
+.mini-record span{margin-bottom:7px;color:#000;font-size:12.5px;font-weight:500}
+.mini-record small{color:#60646c;font-size:11.5px;line-height:1.45}
+.research-alert{
+  max-width:920px;
+  margin:0 0 34px;
+  padding:18px 20px;
+  border-left:4px solid #ff5900;
+  background:#fff;
+  color:#60646c;
+  font-size:13px;
+  line-height:1.5;
+}
+.research-alert b{color:#000}
+.line-status{
+  display:inline-block;
+  margin:0 0 10px;
+  padding:4px 7px;
+  border-radius:6px;
+  font-size:10px;
+  font-weight:600;
+}
+.line-status.hypothesis{
+  background:#fff2e9;
+  color:#a44b00;
+}
+@media (max-width:700px){
+  .household-grid{grid-template-columns:1fr}
+  .ancestor-card{padding:20px}
+  .direct-link,.hypothesis-link{margin-left:18px}
+}
+
+</style>
 </head>
 <body>
-  <header class="top"><div class="wrap top-inner"><div class="brand"><span class="seal">Б</span><span>Архив рода Барбул</span></div><nav class="nav" aria-label="Разделы"><button class="active" data-view="tree">Древо</button><button data-view="timeline">Хронология</button><button data-view="archive">Архивные находки</button><button data-view="method">О проекте</button></nav><button class="search-btn" id="openSearch" aria-label="Поиск по людям"><span>⌕</span><span class="search-label">Найти человека</span><kbd>Ctrl K</kbd></button></div></header>
-  <section class="hero"><div class="wrap hero-grid"><div><div class="eyebrow">Документальная семейная летопись</div><h1 class="serif">Род Барбул</h1><p>От берегов Днестра до Южного Урала. Родственные связи, семейная память и архивные свидетельства — с честным разделением подтверждённых фактов и исследовательских гипотез.</p></div><div class="stats"><div class="stat"><b>6</b><span>поколений в древе</span></div><div class="stat"><b>22</b><span>персоны в древе</span></div><div class="stat"><b>1883</b><span>ранняя точная дата</span></div><div class="stat"><b>3</b><span>уровня достоверности</span></div></div></div></section>
-  <main class="wrap">
-    <section class="view active" id="view-tree"><div class="section-head"><div><div class="eyebrow">Родственные линии</div><h2 class="serif">Общее древо</h2><p>Сплошная линия означает установленную связь, пунктир — связь, которую ещё предстоит проверить. Нажмите на карточку, чтобы открыть биографию.</p></div><div class="legend"><span class="pill"><i class="dot confirmed"></i>Подтверждено</span><span class="pill"><i class="dot probable"></i>Вероятно</span><span class="pill"><i class="dot hypothesis"></i>Гипотеза</span></div></div>
-      <div class="tree-shell"><div class="tree-note"><span>Перетаскивайте древо мышью или пальцем</span><div class="tree-controls"><button class="icon-btn" id="zoomOut" aria-label="Уменьшить">−</button><button class="icon-btn" id="fitTree" aria-label="Показать всё">⌂</button><button class="icon-btn" id="zoomIn" aria-label="Увеличить">+</button></div></div><div class="tree-viewport" id="treeViewport"><div class="tree-stage" id="treeStage"><svg class="tree-lines" viewBox="0 0 1660 1260" aria-hidden="true"></svg><div class="generation" style="top:155px">I поколение</div><div class="generation" style="top:350px">II поколение</div><div class="generation" style="top:575px">III поколение</div><div class="generation" style="top:800px">IV поколение</div><div class="generation" style="top:995px">V поколение</div><div class="generation" style="top:1205px">VI поколение</div></div></div></div>
-    </section>
-    <section class="view" id="view-timeline"><div class="section-head"><div><div class="eyebrow">1850-е — наши дни</div><h2 class="serif">Хронология семьи</h2><p>События семейной истории показаны в контексте переселений, репрессий и сохранённых документов.</p></div></div><div class="timeline-layout"><aside class="era-nav"><button data-scroll="e1850">Истоки · 1850–1917</button><button data-scroll="e1926">Переселение · 1926</button><button data-scroll="e1931">Дело ГПУ · 1931–1933</button><button data-scroll="e1949">Высылка · 1949–1956</button><button data-scroll="e1976">Новые поколения</button></aside><div class="timeline" id="timeline"></div></div></section>
-    <section class="view" id="view-archive"><div class="section-head"><div><div class="eyebrow">Документы и вопросы</div><h2 class="serif">Архивные находки</h2><p>Здесь архивный факт не смешивается с обвинением следствия, а противоречия не маскируются готовыми выводами.</p></div></div><div class="archive-grid"><article class="archive-card featured"><span class="num">01</span><div class="eyebrow">Ключевой первоисточник</div><h3>Дело ГПУ УССР №3910</h3><p>Материалы 1931–1933 годов связывают Степана, Михаила и Нину Барбул из хутора Шмоленки. Обвинительные формулировки ГПУ отражают версию следствия и не представлены как доказанные факты.</p><div class="meta"><span>Ф. Р-3401</span><span>Оп. 2</span><span>Д. 4447</span><span>1931–1933</span></div></article><article class="archive-card small"><span class="num">02</span><div class="eyebrow">Требует сверки</div><h3>Возраст Надежды Буграновой</h3><p>Год 1926 в найденном свидетельстве противоречит рождению дочери Галины в 1936 году. Возможны ошибка записи, документ тёзки или иная семейная связь.</p></article><article class="archive-card"><span class="num">03</span><div class="eyebrow">Нерешённый вопрос</div><h3>Степан Трофимович или Терентьевич?</h3><p>В анкете извозчика 1932 года указано отчество «Терентьевич» и упомянут «дядя Трофим». Нужна проверка первичного документа и поиск возможного третьего сына Родиона.</p><div class="meta"><span>Рыбница</span><span>ул. Котовского, 36</span><span>Ф. 24/УСО</span></div></article><article class="archive-card"><span class="num">04</span><div class="eyebrow">Семейный архив</div><h3>Фотографии «Любимая Дю…»</h3><p>Семейные портреты Степана Ефремовича и Кирилла Таранчука совпали с описанием снимков, изъятых при обыске 28 декабря 1931 года. Для окончательного вывода нужна постраничная сверка дела.</p><div class="meta"><span>Фотоархив семьи</span><span>Обыск 28.12.1931</span></div></article></div></section>
-    <section class="view" id="view-method"><div class="section-head"><div><div class="eyebrow">Принципы исследования</div><h2 class="serif">Что известно наверняка</h2><p>Каждому факту присваивается статус. Он меняется только после появления новых документов или независимых свидетельств.</p></div></div><div class="method"><article class="method-card"><div class="status" style="color:var(--green)">Подтверждено</div><h3>Есть первичный источник</h3><p>Актовая запись, архивное дело, официальный документ или несколько независимых свидетельств, которые согласуются между собой.</p></article><article class="method-card"><div class="status" style="color:var(--amber)">Вероятно</div><h3>Совпадают косвенные данные</h3><p>Связь поддерживается семейной памятью и отдельными документами, но прямого подтверждения пока нет.</p></article><article class="method-card"><div class="status" style="color:var(--red)">Гипотеза</div><h3>Есть рабочая версия</h3><p>Она помогает направить дальнейший поиск, но не должна восприниматься как установленный биографический факт.</p></article></div><div class="about-box"><div><h3>О проекте</h3><p>Семейный цифровой архив объединяет родословные сведения, воспоминания родственников и материалы государственных архивов. Публикация открыта для уточнений и новых документальных находок.</p></div><div class="updated">Составитель: семья Рыкуновых<br>Последнее обновление: сентябрь 2026 года</div></div></section>
-  </main>
-  <footer><div class="wrap footer-inner"><span>Род Барбул · семейная летопись</span><span>Живые родственники представлены без лишних персональных данных</span></div></footer>
-  <div class="drawer" id="drawer" aria-hidden="true"><div class="backdrop"></div><article class="panel" role="dialog" aria-modal="true" aria-labelledby="drawerTitle"><button class="panel-close" aria-label="Закрыть">×</button><div id="drawerContent"></div></article></div>
-  <div class="search-overlay" id="searchOverlay"><div class="search-box" role="dialog" aria-modal="true" aria-label="Поиск людей"><input class="search-input" id="searchInput" placeholder="Введите имя или место…" autocomplete="off"><div class="results" id="searchResults"></div></div></div>
-  <script>
-    const people=[
-      {id:'rodion',name:'Родион Родионович Барбул',short:'Родион Родионович',role:'Корень известных ветвей',dates:'ок. 1850–1860-е · Рыбница',status:'probable',branch:'Истоки рода',x:720,y:40,bio:'Старший известный предок документированных ветвей рода Барбул в Рыбнице. Отец Ефрема и Трофима, чьи потомки образовали приднестровскую и уральскую ветви.',sources:'Архивные дела Прокуратуры МССР, материалы дела ГПУ №3910 и семейные свидетельства.'},
-      {id:'efrem',name:'Ефрем Родионович Барбул',short:'Ефрем Родионович',role:'Сын Родиона',dates:'ок. 1880-е · Рыбница — Урал',status:'probable',branch:'Переезд в 1926 году',x:470,y:225,bio:'Жил в Рыбнице и на хуторе Шмоленки. Весной 1926 года распродал имущество и уехал с частью детей на Южный Урал.',sources:'Рукописная родословная родственника; показания свидетелей в деле №3910.'},
-      {id:'trofim',name:'Трофим Родионович Барбул',short:'Трофим Родионович',role:'Сын Родиона',dates:'1883 · Рыбница — после 1956',status:'confirmed',branch:'Приднестровская ветвь',x:970,y:225,bio:'Брат Ефрема. В 1949 году выслан из Рыбницы в Курганскую область. Добился отмены высылки и в 1956 году вернулся в Рыбницу.',sources:'Прокуратура МССР: Ф. Р-3085, оп. 2, д. 2929 (1951–1956).'},
-      {id:'gavriil',name:'Гавриил Ефремович Барбул',short:'Гавриил Ефремович',role:'Сын Ефрема',dates:'начало XX века · Магнитогорск',status:'probable',branch:'Уральская ветвь',x:80,y:455,bio:'Сын Ефрема, супруг Надежды Сергеевны Буграновой. Представитель уральской ветви рода в Магнитогорске.',sources:'Свидетельство о рождении дочери Галины; семейные архивы.'},
-      {id:'nadezhda-s',name:'Надежда Сергеевна Бугранова',short:'Надежда Сергеевна',role:'Супруга Гавриила',dates:'Куликовское — Магнитогорск',status:'hypothesis',branch:'Дата рождения требует сверки',x:320,y:455,bio:'Семейные сведения называют её супругой Гавриила. Найденное свидетельство с годом рождения 1926 противоречит рождению дочери в 1936 году.',sources:'Свидетельство о рождении; семейные сведения. Связь и датировка требуют актовой проверки.'},
-      {id:'stepan-e',name:'Степан Ефремович Барбул',short:'Степан «Жорж»',role:'Сын Ефрема',dates:'1902/1904 · Рыбница — Румыния',status:'confirmed',branch:'Дело ГПУ №3910',x:570,y:455,bio:'Весной 1931 года пересёк Днестр и оказался в Бессарабии. В материалах ГПУ проходит под псевдонимом «Жорж-Добрянский»; утверждения о разведывательной деятельности являются версией следствия.',sources:'Дело ГПУ УССР №3910: Ф. Р-3401, оп. 2, д. 4447.'},
-      {id:'tekla',name:'Фёкла (Текля) Кирилловна Таранчук',short:'Фёкла (Текля)',role:'Супруга Степана',dates:'ок. 1904/1907 · с. Степашки',status:'confirmed',branch:'Семья Таранчук',x:810,y:455,bio:'Дочь Кирилла Федотовича и Марины Ивановны Таранчук, жена Степана Ефремовича. В протоколах записана под двойной фамилией Барбул-Таранчук.',sources:'Протоколы допросов по делу №3910, 1932 год.'},
-      {id:'mikhail',name:'Михаил Ефремович Барбул',short:'Михаил Ефремович',role:'Сын Ефрема',dates:'1907 · Шмоленки — после 1989',status:'confirmed',branch:'Реабилитирован в 1989',x:1060,y:455,bio:'Арестован в 1932 году и приговорён к трём годам высылки на Север. Повторно арестован в 1937 году. Полностью реабилитирован 25 мая 1989 года.',sources:'Следственное дело №3910; протоколы свидетелей Ф. Огородника и Т. Герасименко.'},
-      {id:'nina',name:'Нина Ефремовна Барбул (Дивущак)',short:'Нина Ефремовна',role:'Дочь Ефрема',dates:'1910 · Шмоленки — Варна',status:'confirmed',branch:'Южный Урал',x:1300,y:455,bio:'Арестована ГПУ в 1932 году, освобождена под подписку из-за беременности. Позже семья перебралась в село Варна Челябинской области.',sources:'Дело №3910; семейные сведения и публикация «Дети войны и память».'},
-      {id:'galina',name:'Галина Гавриловна Барбул',short:'Галина Гавриловна',role:'Дочь Гавриила',dates:'1936–2026 · Магнитогорск — Челябинск',status:'confirmed',branch:'Уральская ветвь',x:70,y:700,bio:'Дочь Гавриила Ефремовича. Родилась в Магнитогорске, жила в Челябинске. Мать Надежды Николаевны.',sources:'Свидетельство о рождении и семейные документы.'},
-      {id:'valentina',name:'Валентина Гавриловна Барбул (Соболь)',short:'Валентина Гавриловна',role:'Дочь Гавриила',dates:'Магнитогорск',status:'probable',branch:'Уральская ветвь',x:310,y:700,bio:'Дочь Гавриила Ефремовича. Мать Сергея Макарова и Елены Соболь.',sources:'Семейные свидетельства; актовые данные уточняются.'},
-      {id:'nikolai',name:'Николай Гаврилович Барбул',short:'Николай Гаврилович',role:'Сын Гавриила',dates:'Кишинёв',status:'probable',branch:'Молдавская ветвь',x:550,y:700,bio:'Сын Гавриила Ефремовича. Жил в Кишинёве. Отец Ольги и Марины.',sources:'Семейные свидетельства; актовые данные уточняются.'},
-      {id:'anatoly',name:'Анатолий Гаврилович Барбул',short:'Анатолий Гаврилович',role:'Сын Гавриила',dates:'Магнитогорск',status:'probable',branch:'Уральская ветвь',x:790,y:700,bio:'Сын Гавриила Ефремовича. Отец Олега Анатольевича Барбула.',sources:'Семейные свидетельства; актовые данные уточняются.'},
-      {id:'tatyana',name:'Татьяна Гавриловна Урядова (Барбул)',short:'Татьяна Гавриловна',role:'Дочь Гавриила',dates:'Челябинск',status:'probable',branch:'Уральская ветвь',x:1030,y:700,bio:'Дочь Гавриила Ефремовича. Мать Андрея.',sources:'Семейные свидетельства; актовые данные уточняются.'},
-      {id:'vladimir',name:'Владимир Степанович Барбул',short:'Владимир Барбул',role:'Сын Степана и Фёклы',dates:'даты уточняются',status:'probable',branch:'Рыбницкая ветвь',x:1300,y:700,bio:'Сын Степана Ефремовича Барбула и Фёклы Кирилловны Таранчук.',sources:'Семейный фотоархив и материалы дела №3910.'},
-      {id:'nadezhda-n',name:'Надежда Николаевна Барбул (Рыкунова)',short:'Надежда Николаевна',role:'Дочь Галины',dates:'род. 1976 · Магнитогорск',status:'confirmed',branch:'Младшее поколение',x:40,y:910,bio:'Дочь Галины Гавриловны. Мать Георгия Андреевича и Андрея Андреевича.',sources:'Семейные документы и личный архив.'},
-      {id:'sergey-makarov',name:'Сергей Макаров',short:'Сергей Макаров',role:'Сын Валентины',dates:'даты уточняются',status:'probable',branch:'Младшее поколение',x:260,y:910,bio:'Сын Валентины Гавриловны Барбул (Соболь).',sources:'Семейные сведения; актовые данные уточняются.'},
-      {id:'elena-sobol',name:'Елена Соболь',short:'Елена Соболь',role:'Дочь Валентины',dates:'даты уточняются',status:'probable',branch:'Младшее поколение',x:500,y:910,bio:'Дочь Валентины Гавриловны Барбул (Соболь).',sources:'Семейные сведения; актовые данные уточняются.'},
-      {id:'oleg',name:'Олег Анатольевич Барбул',short:'Олег Анатольевич',role:'Сын Анатолия',dates:'даты уточняются',status:'probable',branch:'Младшее поколение',x:760,y:910,bio:'Сын Анатолия Гавриловича Барбула.',sources:'Семейные сведения; актовые данные уточняются.'},
-      {id:'andrey',name:'Андрей',short:'Андрей',role:'Сын Татьяны',dates:'даты уточняются',status:'probable',branch:'Младшее поколение',x:1000,y:910,bio:'Сын Татьяны Гавриловны Урядовой (Барбул).',sources:'Семейные сведения; актовые данные уточняются.'},
-      {id:'georgiy-andreevich',name:'Георгий Андреевич',short:'Георгий Андреевич',role:'Сын Надежды',dates:'даты уточняются',status:'probable',branch:'VI поколение',x:70,y:1120,bio:'Сын Надежды Николаевны Рыкуновой.',sources:'Семейные сведения; актовые данные уточняются.'},
-      {id:'andrey-andreevich',name:'Андрей Андреевич',short:'Андрей Андреевич',role:'Сын Надежды',dates:'даты уточняются',status:'probable',branch:'VI поколение',x:310,y:1120,bio:'Сын Надежды Николаевны Рыкуновой.',sources:'Семейные сведения; актовые данные уточняются.'}
-    ];
-    const links=[['rodion','efrem'],['rodion','trofim'],['efrem','gavriil'],['efrem','stepan-e'],['efrem','mikhail'],['efrem','nina'],['gavriil','nadezhda-s','couple'],['stepan-e','tekla','couple'],['gavriil','galina'],['gavriil','valentina'],['gavriil','nikolai'],['gavriil','anatoly'],['gavriil','tatyana'],['stepan-e','vladimir'],['galina','nadezhda-n'],['valentina','sergey-makarov'],['valentina','elena-sobol'],['anatoly','oleg'],['tatyana','andrey'],['nadezhda-n','georgiy-andreevich'],['nadezhda-n','andrey-andreevich']];
-    const events=[
-      {id:'e1850',year:'ок. 1850–1860-е',title:'Рождение Родиона Барбула',text:'Начало документируемой истории семьи в Рыбнице на левом берегу Днестра.',note:'Вероятная датировка · семейная реконструкция'},
-      {year:'1883',title:'Рождение Трофима Родионовича',text:'Точная дата становится первой надёжной временной опорой приднестровской ветви.',note:'Прокуратура МССР · Ф. Р-3085'},
-      {id:'e1926',year:'1926',title:'Переезд семьи Ефрема на Южный Урал',text:'Ефрем Родионович продаёт дом и хозяйство в Рыбнице и уезжает с частью детей. Так формируется уральская ветвь рода.',note:'Семейная запись и свидетельские показания'},
-      {id:'e1931',year:'весна 1931',title:'Степан пересекает Днестр',text:'Степан Ефремович оказывается в Бессарабии. В документах ГПУ он позднее фигурирует под именем «Жорж-Добрянский»; обвинения приводятся только как версия следствия.',note:'Дело ГПУ №3910'},
-      {year:'28 декабря 1931',title:'Обыск в семье Таранчук',text:'При обыске у Кирилла Таранчука изъяты фотографии, которые, вероятно, пытались передать Степану.',note:'Протокол обыска · требуется постраничная ссылка'},
-      {year:'1932–1933',title:'Аресты и высылки по делу №3910',text:'Михаил приговорён к трём годам высылки на Север. Беременная Нина освобождена под подписку, позднее семья переезжает в Варну.',note:'Архивный факт · обвинения не тождественны доказанной вине'},
-      {year:'1936',title:'Рождение Галины Гавриловны',text:'Магнитогорск. Новое поколение уральской ветви семьи.',note:'Свидетельство о рождении'},
-      {id:'e1949',year:'1949–1956',title:'Высылка и реабилитация Трофима',text:'Трофим выслан из Рыбницы в Курганскую область, добивается пересмотра решения и возвращается домой.',note:'Ф. Р-3085, оп. 2, д. 2929'},
-      {id:'e1976',year:'1976',title:'Рождение Надежды Николаевны',text:'Продолжение уральской ветви и передача семейной памяти следующему поколению.',note:'Семейные документы'}
-    ];
-    const stage=document.getElementById('treeStage'),svg=stage.querySelector('svg');
-    people.forEach(p=>{const b=document.createElement('button');b.className='person';b.dataset.id=p.id;b.dataset.status=p.status;b.style.left=p.x+'px';b.style.top=p.y+'px';b.innerHTML=`<span class="role">${p.role}</span><strong>${p.short}</strong><small>${p.dates}</small><div class="branch">${p.branch}</div>`;b.addEventListener('click',()=>openPerson(p.id));stage.appendChild(b)});
-    function center(p){return{x:p.x+110,y:p.y+56}}function pathFor(a,b,type){const A=center(a),B=center(b);if(type==='couple')return `M ${a.x+220} ${A.y} L ${b.x} ${B.y}`;const mid=(A.y+B.y)/2;return `M ${A.x} ${a.y+112} L ${A.x} ${mid} L ${B.x} ${mid} L ${B.x} ${b.y}`}
-    links.forEach(([a,b,type])=>{const A=people.find(p=>p.id===a),B=people.find(p=>p.id===b),path=document.createElementNS('http://www.w3.org/2000/svg','path');path.setAttribute('d',pathFor(A,B,type));if(B.status==='hypothesis')path.setAttribute('class','uncertain');svg.appendChild(path)});
-    const timeline=document.getElementById('timeline');events.forEach(e=>{const el=document.createElement('article');el.className='event';if(e.id)el.id=e.id;el.innerHTML=`<div class="year">${e.year}</div><h3>${e.title}</h3><p>${e.text}</p><span class="source-note">${e.note}</span>`;timeline.appendChild(el)});
-    const labels={confirmed:'Подтверждено документами',probable:'Вероятная связь',hypothesis:'Исследовательская гипотеза'};
-    function openPerson(id){const p=people.find(x=>x.id===id);if(!p)return;document.getElementById('drawerContent').innerHTML=`<span class="person-status ${p.status}">${labels[p.status]}</span><h2 id="drawerTitle">${p.name}</h2><div class="dates">${p.dates}</div><h3>Биографическая справка</h3><p>${p.bio}</p><h3>Источники и примечания</h3><div class="source-box">${p.sources}</div><button class="copy-link" data-copy="${p.id}">Скопировать ссылку на карточку</button>`;drawer.classList.add('open');drawer.setAttribute('aria-hidden','false');history.replaceState(null,'','#person='+id);drawer.querySelector('.panel-close').focus();drawer.querySelector('[data-copy]').onclick=()=>{navigator.clipboard?.writeText(location.href);drawer.querySelector('[data-copy]').textContent='Ссылка скопирована'}}
-    const drawer=document.getElementById('drawer');function closeDrawer(){drawer.classList.remove('open');drawer.setAttribute('aria-hidden','true');if(location.hash.startsWith('#person='))history.replaceState(null,'',location.pathname)}drawer.querySelector('.backdrop').onclick=closeDrawer;drawer.querySelector('.panel-close').onclick=closeDrawer;
-    document.querySelectorAll('.nav button').forEach(btn=>btn.onclick=()=>{document.querySelectorAll('.nav button').forEach(b=>b.classList.toggle('active',b===btn));document.querySelectorAll('.view').forEach(v=>v.classList.toggle('active',v.id==='view-'+btn.dataset.view));window.scrollTo({top:document.querySelector('main').offsetTop-80,behavior:'smooth'})});
-    document.querySelectorAll('[data-scroll]').forEach(b=>b.onclick=()=>document.getElementById(b.dataset.scroll).scrollIntoView({behavior:'smooth',block:'center'}));
-    let scale=.72,tx=0,ty=0,drag=false,sx=0,sy=0,startX=0,startY=0;const vp=document.getElementById('treeViewport');function apply(){stage.style.transform=`translate(${tx}px,${ty}px) scale(${scale})`}function fit(){scale=Math.min((vp.clientWidth-30)/1660,(vp.clientHeight-30)/1260);tx=(vp.clientWidth-1660*scale)/2;ty=15;apply()}setTimeout(fit,0);window.addEventListener('resize',fit);document.getElementById('fitTree').onclick=fit;document.getElementById('zoomIn').onclick=()=>{scale=Math.min(1.35,scale+.12);apply()};document.getElementById('zoomOut').onclick=()=>{scale=Math.max(.35,scale-.12);apply()};vp.onpointerdown=e=>{if(e.target.closest('.person'))return;drag=true;vp.setPointerCapture(e.pointerId);sx=e.clientX;sy=e.clientY;startX=tx;startY=ty;vp.classList.add('grabbing')};vp.onpointermove=e=>{if(!drag)return;tx=startX+e.clientX-sx;ty=startY+e.clientY-sy;apply()};vp.onpointerup=()=>{drag=false;vp.classList.remove('grabbing')};vp.onwheel=e=>{e.preventDefault();scale=Math.max(.35,Math.min(1.35,scale+(e.deltaY<0?.08:-.08)));apply()};
-    const overlay=document.getElementById('searchOverlay'),input=document.getElementById('searchInput'),results=document.getElementById('searchResults');function renderResults(q=''){const items=people.filter(p=>(p.name+' '+p.dates+' '+p.branch).toLowerCase().includes(q.toLowerCase())).slice(0,10);results.innerHTML=items.length?items.map(p=>`<button class="result" data-result="${p.id}"><strong>${p.name}</strong><small>${p.dates} · ${p.branch}</small></button>`).join(''):'<div class="empty">Совпадений не найдено</div>';results.querySelectorAll('[data-result]').forEach(b=>b.onclick=()=>{overlay.classList.remove('open');openPerson(b.dataset.result)})}function openSearch(){overlay.classList.add('open');renderResults();setTimeout(()=>input.focus(),20)}document.getElementById('openSearch').onclick=openSearch;input.oninput=()=>renderResults(input.value);overlay.onclick=e=>{if(e.target===overlay)overlay.classList.remove('open')};document.addEventListener('keydown',e=>{if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==='k'){e.preventDefault();openSearch()}if(e.key==='Escape'){overlay.classList.remove('open');closeDrawer()}});
-    if(location.hash.startsWith('#person='))openPerson(location.hash.split('=')[1]);
-  </script></body>
+
+
+<div class="wrap">
+
+  <div class="masthead">
+    <p class="kicker">Рыбница — Урал — Магнитогорск</p>
+    <h1>Род Барбул</h1>
+    <p class="sub">От Ивана (Иоанна) Барбула (ок. 1755, м. Рыбница) до наших дней. Составлено по семейным интервью, архивным делам и систематизированному реестру; обновлено 29.09.2026.</p>
+  </div>
+
+  <div class="legend">
+    <span><i class="dot confirmed"></i>подтверждено документально</span>
+    <span><i class="dot hypothesis"></i>гипотеза / устное предание</span>
+  </div>
+
+  <nav class="branch-nav">
+    <a href="#early">Рыбница 1796–1848</a>
+    <a href="#terenty">Ветвь Терентия</a>
+    <a href="#efrem">Ветвь Ефрема</a>
+    <a href="#trofim">Ветвь Трофима</a>
+    <a href="#bugranov">Буграновы</a>
+    <a href="#sources">Источники</a>
+    <a href="tree.html">Схема-древо</a>
+  </nav>
+
+  <div class="tree-controls" aria-label="Управление ветвями">
+    <button type="button" id="expand-all">Развернуть всё</button>
+    <button type="button" id="collapse-all">Свернуть всё</button>
+  </div>
+
+  <section class="gen0" id="early">
+    <div class="era-label">1796 · первый найденный двор Барбулов в Рыбнице</div>
+
+    <div class="ancestor-stack">
+      <article class="ancestor-card documented">
+        <div class="ancestor-kicker">Документально · двор №98</div>
+        <h2>Иван (Иоанн) Барбул</h2>
+        <p class="ancestor-meta">41 год в 1796 · расчётно ок. 1755 г.р. · посполитый м. Рыбница</p>
+        <p>В исповедной ведомости Свято-Михайловской церкви м. Рыбница записан главой двора №98.</p>
+        <a class="source-ref source-chip" href="#source-s40" aria-label="Перейти к источнику S40">S40</a>
+      </article>
+
+      <div class="direct-link" aria-label="Документальная связь отец — сын">
+        <span>документально: сын</span>
+        <b>↓</b>
+      </div>
+
+      <article class="ancestor-card documented">
+        <div class="ancestor-kicker">Документально</div>
+        <h2>Онуфрий Иванович Барбул</h2>
+        <p class="ancestor-meta">16 лет в 1796 · расчётно ок. 1780 г.р.</p>
+        <p>Записан среди детей Ивана Барбула. Отчество «Иванович» реконструируется напрямую из записи отец → сын.</p>
+        <a class="source-ref source-chip" href="#source-s40" aria-label="Перейти к источнику S40">S40</a>
+      </article>
+
+      <div class="hypothesis-link" aria-label="Сильная рабочая реконструкция">
+        <span>сильная реконструкция · промежуточный документ пока не найден</span>
+        <b>↓</b>
+      </div>
+    </div>
+
+    <div class="household-1796">
+      <h3>Двор Ивана Барбула в 1796 году</h3>
+      <div class="household-grid">
+        <div class="mini-record">
+          <b>Устина</b>
+          <span>26 лет · жена Ивана</span>
+          <small>Не могла быть биологической матерью 16-летнего Онуфрия; вероятно более поздняя жена Ивана.</small>
+        </div>
+        <div class="mini-record">
+          <b>Мария</b>
+          <span>7 лет · дочь</span>
+          <small>Может быть дочерью как от первого брака Ивана, так и от брака с Устиной.</small>
+        </div>
+        <div class="mini-record">
+          <b>Василий</b>
+          <span>17 лет · брат Устины</span>
+          <small>Жил в том же дворе. Возможная связь его имени с именованием будущего Василия Онуфриевича — только гипотеза.</small>
+        </div>
+      </div>
+    </div>
+
+    <div class="research-alert">
+      <b>Контрольная проблема 1818 года.</b>
+      Онуфрий, которому было бы около 38 лет, не найден рядом с Устиной в просмотренной записи 1818 года.
+      Это не доказывает его смерть: он мог жить отдельным двором, находиться в другом месте/приходе или отсутствовать.
+      Для связи Онуфрий Иванович → Василий Онуфриевич по-прежнему нужен промежуточный документ.
+    </div>
+
+    <div class="root-card">
+      <div class="name">Барбул Василий Онуфриевич</div>
+      <div class="line-status hypothesis">Связь с Онуфрием Ивановичем 1796 — сильная реконструкция</div>
+      <div class="dates">ок. 1803 · 45 лет в 1848 · м. Рыбница</div>
+    </div>
+    <div class="trunk"></div>
+
+    <div class="callout" style="margin-inline:auto;text-align:left">
+      <b>Исповедная ведомость Михайловской церкви м. Рыбница за 1848 год</b> —
+      ДАХмО, ф. 315, оп. 1, д. 7964, л. 563, двор №41
+      <a class="source-ref source-chip" href="#source-s39" aria-label="Перейти к источнику S39">S39</a>.
+      Прямо записан «Василій Онуфріевъ Барбулъ», 45 лет; жена Аксинья Николаева, 36 лет;
+      дети Григорий (16), Иосиф (5), Иродион / Родион (1), Анна (14), Мария (5);
+      пасынок Стефан Васильев (19) и мать Василия — Домникия Анастасьевна, вдова (68). Слово после отчества читается неуверенно; вариант «Мартынова» пока не считаем установленной фамилией.
+    </div>
+
+    <div class="union" style="margin:10px 0 22px 2px">
+      <span class="plus">+</span>Аксинья Николаевна (ок. 1812) · жена
+    </div>
+
+    <div class="early-family fam">
+      <p class="note" style="margin:0 0 8px"><b>Дети Василия Онуфриевича и Аксиньи Николаевны</b></p>
+      <ul>
+
+            <li><div class="person"><div class="name">Григорий Васильевич Барбул</div><div class="dates">ок. 1832</div></div></li>
+            <li><div class="person"><div class="name">Анна Васильевна Барбул</div><div class="dates">ок. 1834</div></div></li>
+            <li><div class="person"><div class="name">Иосиф Васильевич Барбул</div><div class="dates">ок. 1843</div></div></li>
+            <li><div class="person"><div class="name">Мария Васильевна Барбул</div><div class="dates">ок. 1843</div></div></li>
+            <li>
+              <div class="person">
+                <div class="name name base">Иродион (Родион / Радион) Васильевич Барбул</div>
+                <div class="dates">ок. 1847 · 1 год в 1848</div>
+                <span class="tag confirmed">тот же человек · документы 1848 и 1902</span>
+              </div>
+            </li>
+          
+      </ul>
+      <p class="note">В том же дворе: пасынок Василия <b>Стефан Васильев</b> (ок. 1829) и мать Василия
+      <b>Домникия Анастасьевна</b>, вдова (ок. 1780); фамилия пока не установлена окончательно. <span class="tag hypothesis">чтение фамилии требует проверки</span> Она документально мать Василия; считать её супругой Онуфрия Ивановича пока рано без отдельной записи.</p>
+    </div>
+  </section>
+
+  <section class="identity-compare" id="irodion" aria-labelledby="identity-title">
+    <div class="identity-head">
+      <p class="eyebrow">Один человек в двух документах</p>
+      <h2 id="identity-title">Родион 1848 → Иродион 1902</h2>
+      <p>В рабочей реконструкции это одна персона: Иродион (Родион / Радион) Васильевич Барбул, ок. 1847 г.р.</p>
+    </div>
+    <div class="identity-grid">
+      <article class="identity-card">
+        <div class="identity-year">1848</div>
+        <h3>Родіонъ Васильевич Барбул</h3>
+        <p>1 год, м. Рыбница, двор №41. Сын Василия Онуфриевича Барбула и Аксиньи Николаевны.</p>
+        <a class="source-ref source-chip" href="#source-s39" aria-label="Перейти к источнику S39">S39</a>
+      </article>
+      <div class="identity-arrow" aria-hidden="true">→</div>
+      <article class="identity-card">
+        <div class="identity-year">1902</div>
+        <h3>Иродіонъ Васильевъ Барбулъ</h3>
+        <p>Около 55 лет. В земельном деле вместе с Ефремом и Трофимом; отдельно записан Терентий Иродионович. Обязательство перед банком — 942 руб.</p>
+        <div class="chip-row">
+          <a class="source-ref source-chip" href="#source-s20" aria-label="Перейти к источнику S20">S20</a>
+          <a class="source-ref source-chip" href="#source-s37" aria-label="Перейти к источнику S37">S37</a>
+        </div>
+      </article>
+    </div>
+    <p class="identity-note">Совпадают фамилия, отчество, Рыбница и расчётный год рождения. Промежуточная запись 1850–1890-х остаётся желательной как дополнительное архивное подтверждение, но личности в дереве объединены.</p>
+  </section>
+
+  <!-- EFREM BRANCH -->
+  <!-- TERENTY BRANCH -->
+  <details class="branch" id="terenty">
+    <summary><span class="chev">+</span> Ветвь Терентия Иродионовича</summary>
+    <div class="branch-body">
+      <p class="lede">Терентий Иродионович Барбул (ок. 1867 – 1915) — сын Иродиона Васильевича; его отчество прямо зафиксировано в земельном деле 1902 года. Братство с Ефремом поддерживается реконструкцией семьи и тем же документальным комплексом.</p>
+      <div class="fam">
+        <ul>
+          <li>
+            <div class="person"><div class="name">Барбул Терентий Иродионович</div><div class="dates">ок. 1867 – 1915</div><span class="tag confirmed">подтверждено · 1902</span></div>
+            <ul>
+              <li>
+                <div class="person"><div class="name">Барбул Степан Терентьевич</div><div class="dates">1896, г. Рыбница</div><span class="tag confirmed">приговорён к расстрелу 18.10.1937</span></div>
+                <div class="union"><span class="plus">+</span>жена Фёкла (ок. 1894 – 1937?, по преданию)</div>
+                <p class="note warn">Протокол №6 от 18.10.1937 <a class="source-ref" href="#source-s14">[S14]</a> документально подтверждает решение «РАССТРЕЛЯТЬ». Дата фактического исполнения приговора не установлена; судьба жены Феклы — по преданию тоже расстреляна в 1937 г., не подтверждено оригиналом дела.</p>
+                <ul>
+                  <li><div class="person"><div class="name">Барбул Михаил Степанович</div><div class="dates">ок. 1935</div></div></li>
+                  <li><div class="person"><div class="name">Барбул Евдокия Степановна</div><div class="dates">ок. 1918</div></div></li>
+                </ul>
+              </li>
+              <li>
+                <div class="person"><div class="name">Барбул Семён Терентьевич</div><div class="dates">пропал без вести 01.03.1940</div></div>
+                <p class="note">Советско-финская война, призван Рыбницким РВК.</p>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </details>
+
+  <details class="branch" id="efrem">
+    <summary><span class="chev">+</span> Ветвь Ефрема Родионовича <span class="n">→ линия Надежды Николаевны</span></summary>
+    <div class="branch-body">
+      <p class="lede">Ефрем Родионович Барбул (1874 по семейным сведениям; по документам ориентировочно 1876–1880, м. Рыбница) — <b>прадед Надежды Николаевны</b>. По семейным воспоминаниям, до 1926 г. жил в Рыбнице, распродал имущество и с частью детей переехал на Южный Урал. Женат на <b>Марии Герасимовне Печерской</b> (с. Воронково), дочери Герасима Степановича Печерского.</p>
+
+      <div class="fam">
+        <ul>
+          <li>
+            <div class="person">
+              <div class="name">Барбул Ефрем Родионович</div>
+              <div class="dates">1874–1880 (по разным источникам) – ? · участник ПМВ, рядовой 7-го Финляндского стрелк. полка, поступил в военный госпиталь <a class="source-ref" href="#source-s11">[S11]</a>, <a class="source-ref" href="#source-s20">[S20]</a></div>
+              <span class="tag hypothesis">год рождения — гипотеза</span>
+            </div>
+            <div class="union"><span class="plus">+</span>Печерская Мария Герасимовна (с. Воронково)</div>
+
+            <ul>
+              <li>
+                <div class="person">
+                  <div class="name">Барбул Степан Ефремович</div>
+                  <div class="dates">1902 – ? · «Жорж-Добрянский»</div>
+                  <span class="tag confirmed">подтверждено · дело №3910</span>
+                </div>
+                <div class="union"><span class="plus">+</span>Фёкла Таранчук (≈1905)</div>
+                <p class="note">Центральная фигура дела №3910 (1931–1933) о шпионаже в пользу Румынии.</p>
+                <ul><li><div class="person"><div class="name">сын Владимир</div><div class="dates">≈1925</div></div></li></ul>
+              </li>
+
+              <li>
+                <div class="person">
+                  <div class="name">Барбул Нина Ефремовна</div>
+                  <div class="dates">06.04.1910 – 05.09.1985</div>
+                  <span class="tag confirmed">подтверждено</span>
+                </div>
+                <div class="union"><span class="plus">+</span>Дивущак Иван Стратонович (1908 – 12.07.1943, погиб на фронте)</div>
+                <ul>
+                  <li><div class="person"><div class="name">Дивущак (Алексеева) Елизавета Ивановна</div><div class="dates">† 23.05.2014</div></div>
+                    <ul><li><div class="person"><div class="name">Валерий Дивущак</div><div class="dates">28.10.1967</div></div></li></ul>
+                    <p class="note">Внук Елизаветы — Алексей Сергеевич (20.06.2011); линия к промежуточному родителю уточняется (отчество «Сергеевич» не совпадает с именем Валерия).</p>
+                    <p class="note warn">Газетная статья 2013 г. подписана «Елена Алексеева» — расхождение имени не объяснено.</p>
+                  </li>
+                  <li><div class="person"><div class="name">Дивущак Мария Ивановна</div><div class="dates">15.03.1930 – 08.1995</div></div></li>
+                  <li><div class="person"><div class="name">Дивущак Владимир Иванович</div><div class="dates">† 07.09.2003</div></div>
+                    <div class="union"><span class="plus">+</span>жена Лида (Карталы)</div>
+                    <p class="note">дети: Александр (Саша), Сергей (Серёжа) — живут в Карталах</p>
+                  </li>
+                </ul>
+              </li>
+
+              <li>
+                <div class="person">
+                  <div class="name">Барбул Михаил Ефремович</div>
+                  <div class="dates">1907/1908 – ?</div>
+                  <span class="tag confirmed">подтверждено · реабилитирован 25.05.1989</span>
+                </div>
+                <p class="note">Арестован 1931–32 и повторно 1937 по делу №3910. 1-я жена — Текля Дивущак, 2-я — Нина Дивущак (не родная сестра Текли).</p>
+                <ul>
+                  <li><div class="person"><div class="name">Барбул Константин Михайлович</div><div class="dates">† 18.11.2000</div></div>
+                    <div class="union"><span class="plus">+</span>Лида Барбул († 02.1998)</div>
+                    <ul><li><div class="person"><div class="name">Юлия Константиновна (Кулай)</div><div class="dates">р. 1958</div></div>
+                      <div class="union"><span class="plus">+</span>Валерий Кулай (р. 1955)</div>
+                      <ul>
+                        <li><div class="person"><div class="name">Геннадий Кулай</div><div class="dates">р. 1979 · психолог</div></div></li>
+                        <li><div class="person"><div class="name">Александр Кулай</div><div class="dates">р. 1985, Наб. Челны</div></div></li>
+                      </ul>
+                    </li></ul>
+                  </li>
+                  <li><div class="person"><div class="name">Барбул Лена</div><div class="dates">ок. 1947</div></div>
+                    <p class="note">дети: Андрей (ок. 1968), Ирина (ок. 1975)</p>
+                  </li>
+                  <li><div class="person"><div class="name">Барбул Василий</div><div class="dates">ок. 1944</div></div></li>
+                  <li><div class="person"><div class="name">[дочь, на Украине]</div><div class="dates">не установлена</div></div></li>
+                  <li><div class="person"><div class="name">Барбул Валерий Михайлович</div><div class="dates">1953 – 13.04.2019</div></div>
+                    <p class="note">сын от Нины</p>
+                  </li>
+                </ul>
+              </li>
+
+              <li>
+                <div class="person">
+                  <div class="name">Барбул Прокофий (Прокопий) Ефремович</div>
+                  <div class="dates">1912 – 22.03.1967 · Варна</div>
+                </div>
+                <div class="union"><span class="plus">+</span>Барбул Евдокия (Дуня) Яковлевна</div>
+                <ul><li><div class="person"><div class="name">Неля Прокопьевна Барбул</div></div></li></ul>
+              </li>
+
+              <li>
+                <div class="person">
+                  <div class="name name base">Барбул Гаврил (Гавриил) Ефремович</div>
+                  <div class="dates">20.09.1915 – 29.05.1965</div>
+                  <span class="tag confirmed">подтверждено · мемориальная запись</span>
+                </div>
+                <div class="union"><span class="plus">+</span>Бугранова Надежда Сергеевна (04.09.1916 – 04.12.1995) · официальный брак 26.05.1943, свидетельство №78 <a class="source-ref" href="#source-s36">[S36]</a></div>
+                <p class="note">В свидетельстве о браке имя записано как «Гаврил». Слесарь, награждён медалью «За трудовую доблесть» (1952, Магнитогорск) <a class="source-ref" href="#source-s16">[S16]</a>, <a class="source-ref" href="#source-s18">[S18]</a>. Пятеро детей — установлены семейным уточнением 27.09.2026.</p>
+
+                <ul>
+                  <li><div class="person"><div class="name">Барбул Галина Гавриловна</div><div class="dates">25.12.1936 – 06.01.2026</div></div>
+                    <p class="note">Инженер технадзора УКС, Магнитогорск, 40 лет стажа (с 1958 г., по техникуму).</p>
+                  </li>
+                  <li><div class="person"><div class="name">Барбул Валентина Гавриловна</div><div class="dates">р. 05.09.1940</div></div></li>
+                  <li><div class="person"><div class="name">Барбул Николай Гаврилович</div><div class="dates">16.05.1943 – 14.08.2015</div></div></li>
+                  <li><div class="person"><div class="name">Барбул Анатолий Гаврилович</div><div class="dates">13.10.1945 – 07.07.2001</div></div></li>
+                  <li><div class="person"><div class="name">Барбул Татьяна Гавриловна</div><div class="dates">р. 13.06.1953</div></div></li>
+                </ul>
+              </li>
+
+              <li>
+                <div class="person">
+                  <div class="name">Шпак (Барбул) Вера Ефремовна</div>
+                  <div class="dates">р. 1919 · Варна</div>
+                </div>
+                <p class="note warn">Не путать с Верой Сергеевной Буграновой (сестрой Надежды Сергеевны) — см. ветвь Буграновых.</p>
+                <div class="union"><span class="plus">+</span>Шпак [предположительно Мартын]</div>
+                <ul>
+                  <li><div class="person"><div class="name">Яков (Яша) Мартынович Шпак</div><div class="dates">† 05.05.1983 · Челябинск</div></div></li>
+                  <li><div class="person"><div class="name">дочь Галина</div><div class="dates">судьба не установлена</div></div></li>
+                </ul>
+              </li>
+
+              <li>
+                <div class="person">
+                  <div class="name">Барбул Аксентий Ефремович</div>
+                  <span class="tag hypothesis">гипотеза · дата рождения не установлена</span>
+                </div>
+                <p class="note">След теряется в Рыбнице; предположительно умер до 1930 г.</p>
+              </li>
+
+              <li>
+                <div class="person">
+                  <div class="name">[неизвестная дочь] Ефремовна</div>
+                  <span class="tag hypothesis">не установлена</span>
+                </div>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </details>
+
+  <!-- TROFIM BRANCH -->
+  <details class="branch" id="trofim">
+    <summary><span class="chev">+</span> Ветвь Трофима Родионовича</summary>
+    <div class="branch-body">
+      <p class="lede">Трофим Родионович Барбул (1883/1884, Рыбница) — остался в Рыбнице; в 1949 г. выслан как «кулацкий элемент» в Курганскую обл., к 1956 г. добился возвращения.</p>
+      <div class="fam">
+        <ul>
+          <li>
+            <div class="person"><div class="name">Барбул Трофим Родионович</div><div class="dates">1883/1884 – ?</div><span class="tag confirmed">подтверждено</span></div>
+            <div class="union"><span class="plus">+</span>Александра Михайловна (р. 1884)</div>
+            <ul>
+              <li><div class="person"><div class="name">Барбул Степан Трофимович</div><div class="dates">1895/1896 · извозчик</div></div>
+                <p class="note warn">Арестован 1932 и 1937, дело прекращалось «за недоказанностью». Двоюродный брат Степана Ефремовича и Михаила Ефремовича — не путать со Степаном Терентьевичем.</p>
+              </li>
+              <li><div class="person"><div class="name">Барбул Тимофей Трофимович</div></div></li>
+              <li><div class="person"><div class="name">Барбул Михаил</div><div class="dates">25 лет в 1932 г., с. Шмалёна</div></div></li>
+              <li><div class="person"><div class="name">Барбул Нина</div><div class="dates">с. Шмалёна</div></div>
+                <div class="union"><span class="plus">+</span>Иван «диадак/гончар»</div>
+              </li>
+              <li><div class="person"><div class="name">(другие дети)</div><div class="dates">эвакуированы 1941–44, имена не установлены</div></div></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <p class="note" style="margin-top:18px">Также — <b>Барбул Феврония Родионовна</b> (в замужестве Плугерева/Плугарь — вопрос открыт), родная сестра Ефрема, Терентия и Трофима; потомки не выяснены.</p>
+    </div>
+  </details>
+
+  <!-- BUGRANOV BRANCH -->
+  <details class="branch" id="bugranov">
+    <summary><span class="chev">+</span> Линия Буграновых <span class="n">по бабушке Надежде Сергеевне</span></summary>
+    <div class="branch-body">
+      <p class="lede">Казачий род посёлка Куликовский (Берёзинская станица, Оренбургское казачье войско). Отец — вероятно Сергей Тимофеевич Бугранов, Георгиевский кавалер 4-й ст. (взятие крепости Перемышль, март 1915).</p>
+      <div class="fam">
+        <ul>
+          <li>
+            <div class="person"><div class="name">Бугранов Сергей Тимофеевич</div></div>
+            <div class="union"><span class="plus">+</span>Бугранова (Сапожникова) Анна Антоновна</div>
+            <ul>
+              <li><div class="person"><div class="name">Бугранова Надежда Сергеевна</div><div class="dates">04.09.1916, с. Куликовское</div></div>
+                <div class="union"><span class="plus">+</span>Барбул Гавриил Ефремович</div>
+              </li>
+              <li><div class="person"><div class="name">Бугранова Вера Сергеевна</div></div>
+                <p class="note">Внук — Виктор Карцев (Джубга); ещё пятеро внуков — Карталы (имена не установлены).</p>
+              </li>
+              <li><div class="person"><div class="name">Бугранова Даша</div></div>
+                <p class="note">По преданию умерла от голода в 1920-е гг., как и мать Анна Антоновна.</p>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <p class="note" style="margin-top:14px">Идентификация Сергея Тимофеевича с Георгиевским кавалером «Сергей Бугранов» (крест №235891) — сильная, но документально не завершена (отчество в наградном списке не указано).</p>
+    </div>
+  </details>
+
+  <!-- SOURCES -->
+  <details class="branch" id="sources">
+    <summary><span class="chev">+</span> Ключевые источники <span class="n">40 источников в HTML-досье</span></summary>
+    <div class="branch-body sources-wrap">
+      <table class="sources">
+        <thead><tr><th>№</th><th>Источник</th><th>Период</th><th>Что даёт</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td>Ф. Р-3085, оп. 2, д. 2929 (Прокуратура МССР)</td><td>1951–1956</td><td>Дело Трофима Родионовича: высылка, жалобы, возвращение</td></tr>
+          <tr><td>3</td><td>Ф. Р-3401, оп. 2, д. 4447 (дело №3910, ГПУ УССР)</td><td>1931–1933, реаб. 1989</td><td>Дело о шпионской организации; допросы, справки, фотографии</td></tr>
+          <tr><td>4</td><td>База Национального архива Молдовы</td><td>—</td><td>Даты рождения и номера дел на нескольких фигурантов</td></tr>
+          <tr id="source-s11"><td>11</td><td>Уведомление о приёме в госпиталь (ПМВ)</td><td>1914–1917</td><td>Место происхождения и полк Ефрема Родионовича</td></tr>
+          <tr><td>13</td><td>Систематизированный реестр (Excel, 67 персон)</td><td>—</td><td>Отчество прапрадеда, новые персоны, снятие путаницы двух Вер</td></tr>
+          <tr id="source-s14"><td>14</td><td>Протокол №6 от 18.10.1937 (публикация о терроре в МАССР)</td><td>1937</td><td>Расстрельное решение по Степану Терентьевичу</td></tr>
+          <tr id="source-s16"><td>16</td><td>Газета «Магнитогорский металл», 06.08.1998</td><td>1998</td><td>Юбилейная заметка о Галине Гавриловне</td></tr>
+          <tr><td>17</td><td>Рабочий электронный реестр и HTML-дерево</td><td>—</td><td>Актуальная систематизация: 103 персоны, 145 связей, 39 источников</td></tr>
+          <tr id="source-s18"><td>18</td><td>Мемориальная запись Правобережного кладбища, Магнитогорск</td><td>—</td><td>Точные даты жизни Гавриила Ефремовича</td></tr>
+          <tr id="source-s20"><td>20</td><td>Договор Второго Рыбницкого товарищества (ф. 234, оп. 1, д. 4287)</td><td>1902</td><td>Возрасты Иродиона, Ефрема, Трофима, Терентия и Стефана</td></tr>
+
+          <tr id="source-s36"><td>36</td><td>Свидетельство о браке №78: Барбул Гаврил Ефремович × Бугранова Надежда Сергеевна</td><td>26.05.1943</td><td>Официальная регистрация брака; документальная форма имени «Гаврил»</td></tr>
+          <tr id="source-s37"><td>37</td><td>Уточнение по земельному делу Второго Рыбницкого товарищества</td><td>1902</td><td>Дата 24.04.1902, банковский штамп 04.12.1902, строка Терентия Иродионовича, сумма 942 руб.</td></tr>
+          <tr id="source-s38"><td>38</td><td>FamilySearch: рабочие профили семьи Барбул</td><td>—</td><td>ID ключевых персон; требует проверки прикреплённых первичных источников</td></tr>
+          <tr id="source-s39"><td>39</td><td>ДАХмО, ф.315, оп.1, д.7964, л.563 — исповедная ведомость Михайловской церкви м. Рыбница, двор №41</td><td>1848</td><td>Василий Онуфриевич Барбул, Аксинья Николаевна, дети Григорий, Иосиф, Родион, Анна, Мария; пасынок Стефан; мать Василия Домникия Анастасьевна, 68 лет; последнее слово после отчества читается неуверенно, возможно «Мартынова»</td></tr>
+
+          <tr id="source-s40">
+            <td>40</td>
+            <td>ДАХмО, ф.315, оп.1, д.6664 — исповедная ведомость Свято-Михайловской церкви м. Рыбница, двор №98</td>
+            <td>1796</td>
+            <td>Иван (Иоанн) Барбул, 41; жена Устина, 26; дети Онуфрий, 16, и Мария, 7; Василий, брат Устины, 17. Документально устанавливает связь Иван → Онуфрий.</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="note" style="margin-top:14px">В HTML-досье добавлен новый источник S40 за 1796 год; основной Excel-реестр следует синхронизировать отдельно.</p>
+    </div>
+  </details>
+
+  <footer>
+    Генеалогическое досье рода Барбул · обновлено 29.09.2026 · добавлена Рыбница 1796 · Родион 1848 и Иродион 1902 объединены как одно лицо в рабочей реконструкции · данные о живых родственниках частично скрыты по этическим соображениям
+  </footer>
+
+
+<script>
+(function(){
+  const branches = Array.from(document.querySelectorAll('details.branch'));
+  branches.forEach(branch => {
+    const firstPerson = branch.querySelector('.branch-body .person');
+    if (firstPerson) firstPerson.classList.add('branch-root');
+
+    const chev = branch.querySelector(':scope > summary .chev');
+    const syncChev = () => { if (chev) chev.textContent = branch.open ? '−' : '+'; };
+    syncChev();
+    branch.addEventListener('toggle', syncChev);
+  });
+
+  const expand = document.getElementById('expand-all');
+  const collapse = document.getElementById('collapse-all');
+  if (expand) expand.addEventListener('click', () => branches.forEach(b => b.open = true));
+  if (collapse) collapse.addEventListener('click', () => {
+    branches.forEach(b => b.open = false);
+    document.getElementById('early')?.scrollIntoView({behavior:'smooth', block:'start'});
+  });
+
+  const navLinks = Array.from(document.querySelectorAll('.branch-nav a[href^="#"]'));
+  const sectionById = new Map(navLinks.map(a => [a.getAttribute('href').slice(1), a]));
+  const observed = Array.from(document.querySelectorAll(
+    '#early, #terenty, #efrem, #trofim, #bugranov, #sources'
+  ));
+
+  const io = new IntersectionObserver(entries => {
+    const visible = entries
+      .filter(e => e.isIntersecting)
+      .sort((a,b) => Math.abs(a.boundingClientRect.top) - Math.abs(b.boundingClientRect.top))[0];
+    if (!visible) return;
+    navLinks.forEach(a => a.classList.remove('is-active'));
+    const link = sectionById.get(visible.target.id);
+    if (link) link.classList.add('is-active');
+  }, {rootMargin:'-20% 0px -65% 0px', threshold:[0,0.01]});
+
+  observed.forEach(el => io.observe(el));
+
+  navLinks.forEach(a => {
+    a.addEventListener('click', () => {
+      navLinks.forEach(x => x.classList.remove('is-active'));
+      a.classList.add('is-active');
+    });
+  });
+})();
+</script>
+
+</div>
+
+</body>
 </html>
